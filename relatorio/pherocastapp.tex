@@ -1,5 +1,5 @@
 fgt\documentclass[12pt, %
-openright, 
+openright,
 oneside, %
 %twoside, %TCC: Se seu texto tem mais de 100 páginas, descomente esta linha e comente a anterior
 a4paper,    %
@@ -13,19 +13,19 @@ brazil]{facom-ufu-abntex2}
 \usepackage{listings}
 \lstset{
   language=Java,
-  basicstyle=\ttfamily\small, 
+  basicstyle=\ttfamily\small,
   keywordstyle=\color{jpurple}\bfseries,
   stringstyle=\color{red},
   commentstyle=\color{verde},
   morecomment=[s][\color{blue}]{/**}{*/},
-  extendedchars=true, 
-  showspaces=false, 
-  showstringspaces=false, 
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
   numbers=left,
   numberstyle=\tiny,
-  breaklines=true, 
-  backgroundcolor=\color{cyan!10}, 
-  breakautoindent=true, 
+  breaklines=true,
+  backgroundcolor=\color{cyan!10},
+  breakautoindent=true,
   captionpos=b,
   xleftmargin=0pt,
   tabsize=4
@@ -33,7 +33,7 @@ brazil]{facom-ufu-abntex2}
 \autor{Patrick Godinho} %TCC
 \data{2014}
 \orientador{Lasaro Camargos} %TCC
-%\coorientador{Algum?} %TCC 
+%\coorientador{Algum?} %TCC
 
 
 % ---
@@ -45,7 +45,7 @@ brazil]{facom-ufu-abntex2}
 \hypersetup{pdfkeywords={palavra 1}{palavra 2}{palavra 4}{palavra 4}{palavra 5}} %TCC
 
 \begin{document}
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -69,22 +69,22 @@ brazil]{facom-ufu-abntex2}
     \vspace*{\fill}\vspace*{\fill}
     {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
     \vspace*{\fill}
-    
+
     \hspace{.45\textwidth}
     \begin{minipage}{.5\textwidth}
         \imprimirpreambulo
     \end{minipage}%
     \vspace*{\fill}
    \end{center}
-    
+
    Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012: %TCC:
 
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador}  
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador}
    \assinatura{\textbf{Professor}}% \\ Convidado 1} %TCC:
    \assinatura{\textbf{Professor}}% \\ Convidado 2} %TCC:
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
-      
+
    \begin{center}
     \vspace*{0.5cm}
     {\large\imprimirlocal}
@@ -92,7 +92,7 @@ brazil]{facom-ufu-abntex2}
     {\large\imprimirdata}
     \vspace*{1cm}
   \end{center}
-  
+
 \end{folhadeaprovacao}
 % ---
 
@@ -136,7 +136,7 @@ Agradeço a Deus, minha esposa e ao meu orientador Lasaro Camargos pelo apoio e 
 \begin{resumo} %TCC:
 
  \vspace{\onelineskip}
-    
+
  \noindent
  \textbf{Palavras-chave}: Manet, Android, Redes Oportunísticas%TCC:
 \end{resumo}
@@ -222,7 +222,7 @@ VANET são redes móveis MANET onde os nós são os veículos e até a estrada, 
 
 Assim como na MANET, a Vehicular Ad-Hoc Network também permite que várias aplicações com vários objetivos sejam desenvolvidos, bem como alertar obstáculos na estrada, broadcast de informações de segurança, compartilhar informações de tráfego ou até solicitar socorro em algum acidente.
 
-As simualções e experimentos tem tido um papel importante no desenvolvimento das soluções para redes veiculares. A atenção maior tem sido dada no desenvolvimento de modelos realistas de estrada e principalmente no estudo da mobilidade dos veículos. Por exemplo, modelos de como os carros se movem ao longo do trajeto, levando em consideração sua velocidade, sinais de transito, dentre outros fatores. 
+As simualções e experimentos tem tido um papel importante no desenvolvimento das soluções para redes veiculares. A atenção maior tem sido dada no desenvolvimento de modelos realistas de estrada e principalmente no estudo da mobilidade dos veículos. Por exemplo, modelos de como os carros se movem ao longo do trajeto, levando em consideração sua velocidade, sinais de transito, dentre outros fatores.
 
 \subsubsection{Problema}
 O grande desafio das Redes Ad-Hoc Veiculares é o roteamento entre os nós, devida a alta taxa de mobilidade dos veículos que são conectados entre si intermitentemente, dificultando a entrega das mensagens entre os veículos ou estrada, pois frequentemente um nó muda seu endereço, ficando assim diferente de qual se identificou.
@@ -247,7 +247,7 @@ Assim, com o histórico dos "traces" de um determinado nó na forma de um grafo,
 \paragraph{Resultados}
 Segundo \cite{6838650} foi feita uma avaliação do algoritmo PheroCast usando os caminhos dos onibus de Seattle Metro Transit, que vale a pena ressaltar, não foram extraídos para a abordagem nem com o intervalo de tempo ideal. Foi descoberto que a abordagem obteve bons resultados em relação à predição das futuras posicões dos onibus. A avaliação obteve 77,8\% de resultados positivos
 \paragraph{Problema}
-O grande problema do PheroCast é a sua avaliação limitada, ou seja, é necessário, para uma abordagem com essas características, uma avaliação extensa com dados reais, que ssimulam de verdade a mobilidade humana. 
+O grande problema do PheroCast é a sua avaliação limitada, ou seja, é necessário, para uma abordagem com essas características, uma avaliação extensa com dados reais, que ssimulam de verdade a mobilidade humana.
 
 Atualmente não existem "traces" reais, e sim módulos de mobilidade sintéticos, os quais não são realistas. Daí vem a proposta deste trabalho, o qual irá cooperar para avaliação confiável do PheroCast, coletando dados de mobilidade humana reais, através de seus dispositivos móveis.
 \section{Proposta}
@@ -257,6 +257,8 @@ O objetivo é que o sistema seja utilizado por mais de um usuário para que assi
 
 \chapter{Referencial Teórico}
 \section{PheroCast}
+Para entedermos a abordagem do Pherocast, que consiste na previsão da posição dos nós de uma rede móvel baseada no conceitos dos feromônios, vamos conceituar algumas estruturas de dados utilizadas pelo algoritmo.
+
 \section{Android}
 
 \chapter{Proposta}
@@ -279,7 +281,7 @@ Do lado do cliente desenvolveremos um sistema para rodar em dispositivos com o s
 
 O aplicativo irá utilizar os serviços de Wifi do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após coleta, o sistema irá armazenar em base de dados local do dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 2.
 
-Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede WiFi com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
+Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede WiFi com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos.
 
 Caso o serviço de WiFi esteja desligado, o aplicativo deverá ser responsável por após ligar o Wifi e coletar os dados, desligar o mesmo, voltando assim para o estado inicial antes da coleta. Fazendo com que assim, não haja alteração no funcionamento do aparelho.
 
@@ -299,7 +301,7 @@ O servidor deverá armazenar as informações virão do cliente, como:
   \item Horário
   \item Identificador do Usuário do Dispositivo
   \end{itemize}
-  
+
 \subsection{Limpeza dos dados}
 O sistema deverá tratar os dados do cliente com anonimidade, ou seja deverá haver algoritmos de segurança que tornem os dados do cliente anonimos, para preservar a identidade do usuário.
 \chapter{Desenvolvimento}
@@ -355,7 +357,7 @@ O sistema deverá tratar os dados do cliente com anonimidade, ou seja deverá ha
 
 % ---
 \chapter{Código fonte}
-% 
+%
 \section{MainActivity.java}
 \begin{lstlisting}
 package ufu.tcc.patrick.pherocast;
@@ -393,7 +395,7 @@ public class MainActivity extends ActionBarActivity {
 	List<ScanResult> localList = new ArrayList<ScanResult>();
 
 	private String pegarHoraAtual() {
-		return new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()); 
+		return new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date());
 	}
 
 	public void getWifiState() {
@@ -523,8 +525,8 @@ public class HttpRequest{
 
         HttpConnectionParams.setConnectionTimeout(myParams, 10000);
         HttpConnectionParams.setSoTimeout(myParams, 10000);
-        httpClient = new DefaultHttpClient(myParams);       
-        localContext = new BasicHttpContext();    
+        httpClient = new DefaultHttpClient(myParams);
+        localContext = new BasicHttpContext();
     }
 
     public void clearCookies() {
@@ -558,7 +560,7 @@ public class HttpRequest{
         httpPost = new HttpPost(url);
         response = null;
 
-        StringEntity tmp = null;        
+        StringEntity tmp = null;
 
         Log.d("Your App Name Here", "Setting httpPost headers");
 
@@ -597,19 +599,19 @@ public class HttpRequest{
     }
 
     public String sendGet(String url) {
-        httpGet = new HttpGet(url);  
+        httpGet = new HttpGet(url);
 
         try {
-            response = httpClient.execute(httpGet);  
+            response = httpClient.execute(httpGet);
         } catch (Exception e) {
             Log.e("Your App Name Here", e.getMessage());
         }
 
-        //int status = response.getStatusLine().getStatusCode();  
+        //int status = response.getStatusLine().getStatusCode();
 
-        // we assume that the response body contains the error message  
+        // we assume that the response body contains the error message
         try {
-            ret = EntityUtils.toString(response.getEntity());  
+            ret = EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
             Log.e("Your App Name Here", e.getMessage());
         }
@@ -621,10 +623,10 @@ public class HttpRequest{
         InputStream in = null;
         int response = -1;
 
-        URL url = new URL(urlString); 
+        URL url = new URL(urlString);
         URLConnection conn = url.openConnection();
 
-        if (!(conn instanceof HttpURLConnection))                     
+        if (!(conn instanceof HttpURLConnection))
             throw new IOException("Not an HTTP connection");
 
         try{
@@ -632,20 +634,20 @@ public class HttpRequest{
             httpConn.setAllowUserInteraction(false);
             httpConn.setInstanceFollowRedirects(true);
             httpConn.setRequestMethod("GET");
-            httpConn.connect(); 
+            httpConn.connect();
 
-            response = httpConn.getResponseCode();                 
+            response = httpConn.getResponseCode();
 
             if (response == HttpURLConnection.HTTP_OK) {
-                in = httpConn.getInputStream();                                 
-            }                     
+                in = httpConn.getInputStream();
+            }
         } catch (Exception e) {
-            throw new IOException("Error connecting");            
+            throw new IOException("Error connecting");
         } // end try-catch
 
-        return in;     
+        return in;
     }
-    
+
 
 	public void postData() {
 		String fullUrl = "https://docs.google.com/forms/d/1AYvV0gFgB1hBuoRKnMsXy1LyF8-Ce8VAshAtho6Z08s/formResponse";
@@ -653,11 +655,11 @@ public class HttpRequest{
 		String col1 = "Hello";
 		String col2 = "World";
 
-		String data = "entry.1680144410=" + URLEncoder.encode(col1) + "&" + 
+		String data = "entry.1680144410=" + URLEncoder.encode(col1) + "&" +
 					  "entry.1558298396=" + URLEncoder.encode(col2);
 		String response = mReq.sendPost(fullUrl, data);
 		Log.i("DocsUpload", response);
-	} 
+	}
 }
 
 \end{lstlisting}

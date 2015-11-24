@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: pherocastapp.aux
+The top-level auxiliary file: /Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.aux
 The style file: plain.bst
 Database file #1: abntex2-options.bib
 Warning--entry type for "abnt-url-package=url" isn't style-file defined
@@ -9,7 +9,7 @@ Database file #2: ../bib.bib
 Warning--all relevant fields are empty in abnt-url-package=url
 You've used 2 entries,
             2118 wiz_defined-function locations,
-            506 strings with 4278 characters,
+            506 strings with 4378 characters,
 and the built_in function-call counts, 656 in all, are:
 = -- 53
 > -- 29
