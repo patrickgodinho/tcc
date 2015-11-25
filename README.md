@@ -1,5 +1,5 @@
 # Trabalho de conclusão de curso.
 
-# Sistemas de Informação - UFU 
+Sistemas de Informação - UFU 
 
-# Orientador: Lásaro Camargo
+Orientador: Lásaro Camargo
