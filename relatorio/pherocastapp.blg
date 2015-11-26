@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: pherocastapp.aux
 The style file: plain.bst
@@ -6,52 +6,47 @@ Database file #1: abntex2-options.bib
 Warning--entry type for "abnt-url-package=url" isn't style-file defined
 --line 199 of file abntex2-options.bib
 Database file #2: bib.bib
-Warning--entry type for "IBM:Android" isn't style-file defined
---line 26 of file bib.bib
-Warning--string name "mai" is undefined
---line 29 of file bib.bib
-Warning--to sort, need author, editor, or key in googleand
-Warning--empty author and editor in googleand
 Warning--all relevant fields are empty in abnt-url-package=url
-You've used 5 entries,
+Warning--empty journal in 6838650
+You've used 2 entries,
             2118 wiz_defined-function locations,
-            521 strings with 4537 characters,
-and the built_in function-call counts, 1336 in all, are:
-= -- 115
-> -- 50
+            506 strings with 4275 characters,
+and the built_in function-call counts, 628 in all, are:
+= -- 52
+> -- 29
 < -- 1
-+ -- 21
-- -- 16
-* -- 85
-:= -- 201
-add.period$ -- 11
-call.type$ -- 5
-change.case$ -- 22
++ -- 12
+- -- 10
+* -- 42
+:= -- 94
+add.period$ -- 4
+call.type$ -- 2
+change.case$ -- 11
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 59
-empty$ -- 133
-format.name$ -- 16
-if$ -- 293
+cite$ -- 4
+duplicate$ -- 25
+empty$ -- 53
+format.name$ -- 10
+if$ -- 135
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 3
-newline$ -- 24
-num.names$ -- 6
-pop$ -- 37
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 11
+num.names$ -- 2
+pop$ -- 17
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 10
 quote$ -- 0
-skip$ -- 51
+skip$ -- 28
 stack$ -- 0
-substring$ -- 60
-swap$ -- 13
+substring$ -- 30
+swap$ -- 8
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
-warning$ -- 3
-while$ -- 9
-width$ -- 6
-write$ -- 44
-(There were 6 warnings)
+type$ -- 8
+warning$ -- 2
+while$ -- 4
+width$ -- 3
+write$ -- 16
+(There were 3 warnings)

@@ -208,6 +208,7 @@ Agradeço a Deus, minha esposa e ao meu orientador Lasaro Camargos pelo apoio e 
 \subsection{MANET}
 MANET é a abreviação de Mobile Ad-Hoc Networks, a qual se define pelas redes em que nós se movimentam livremente, comunicam entre si e entre o meio em que está, sem a necessidade de nenhuma infraestrutura de rede. Tais ações permitem que várias aplicações sejam desenvolvidas com objetivo por exemplo da troca de informações entre os nós ou até o compartilhamento de serviços, como por exemplo a funcionalidade que temos hoje em dia de rotear a internet do celular com dispositivos próximos.
 
+
 Tambem definida por MANET pode ser conceituada como um sistema autonomo de servidores moveis (que tambem servem de roteadores), os quais unidos formam uma rede de comunicacao representada por um grafo.
 
 Os nós em uma MANET se movem arbitrariamente, e essa é a grande característica da rede, mas também o principal ofensor na qualidade da comunicação disponibilizada nesse ambiente, pois a arquitetura entre eles deve sempre estar se adaptando para os novos meios em que estão inseridos.
@@ -351,14 +352,80 @@ O servidor deverá armazenar as informações virão do cliente, como:
 O sistema deverá tratar os dados do cliente com anonimidade, ou seja deverá haver algoritmos de segurança que tornem os dados do cliente anonimos, para preservar a identidade do usuário.
 \chapter{Desenvolvimento}
 \section{Aplicativo}
-\section{Google Docs}
+Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as redes wireless disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
+
+Para tal, utilizamos a API do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor wifi do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
+
+Foram utilizadas também classes que auxiliam nas funcionalidades do aplicativo, como por exemplo, o armazenamento em uma base de dados do dispositivo, o envio dos dados para a nuvem, a identificação do usuário pelo e-mail cadastrado no dispositivo.
+
+Abaixo detalharemos cada classe do código, com o objetivo de entendermos a estrutura do desenvolvimento do aplicativo.
+
+Começaremos pela MainActivity, classe estendida do componente Activity do Android, o qual foi detalhado no nosso referencial teórico, que é a nossa principal classe, ou seja código responsável pela inicialização e processamento do aplicativo, através do método onCreate(). Esse método cria uma tarefa agendada que roda em intervalos de um minuto. Tal tarefa, é responsável por verificar a situação do Wifi do aparelho, e, caso este esteja desligado, é ligado. Toda essa verificação do Wifi, é feita no método getWifiState().
+
+  Após tratar a situação do sinal wireless do aparelho, a tarefa registra através de um Intent, a classe WifiScanReceiver estendida do componente BroadCastReceiver, responsável por receber o resultado da varredura das redes wireless ao alcance do aparelho realizada.
+ 
+ A responsabilidade da coleta das redes sem fio é do objeto instanciado da classe WifiManager da API do Android, o qual é executado através do método startScan(), após a tarefa registrar o receptor das redes encontradas.
+ 
+  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são BSSID, SSID, Capabilities, Frequency, level e a hora que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
+ 
+  Para armazenar na nuvem as redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento que utilizamos através da classe HttpRequest, caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
+  
+
+ \section{Google Docs}
+Com o objetivo de simular o serviço de armazenamento na nuvem, utilizamos o Google Docs, o qual nos fornece um serviço de criação, edição e utilização de formulários de pesquisa, onde as respostas são convertidas em planilhas compartilhadas. Assim, na nossa requisição POST, com a mesma URL e parâmetros que o botão de responder o formulário que criamos com as informações esperadas das redes. Com isso, obtivemos várias linhas em planilha contendo informações das redes sem fio, a hora em que foram capturadas e o usuário responsável pela coleta.
+
 \section{Limpeza dos dados}
+Como tópico de trabalhos futuros, pretendemos utilizar um codificador do dado que carrega as informações do usuário, tornando assim os dados limpos e possíveis de serem colaborados com a comunidade em trabalhos que necessitem de dados reais, como no caso do PheroCast.
+
 
 \chapter{Resultados}
 \section{Dados Coletados}
+Após divulgação do trabalho para amigos e comunidade, obtivemos mais de 45 mil registros de redes coletadas em um período de aproximadamente um mês. Compilamos os dados com apenas 5 usuários, os quais foram mais colaborativos em questão de quantidade e consideramos o suficiente para analisar os dados.
+Com os dados coletados e separados por colaborador compilados em uma planilha, conseguimos o suficiente para realizar algumas análises sobre as informações adquiridas. Tais análises, serão exibidas na próxima seção.
+
 \section{Análise}
+Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, consideramos que a rede "ALGARTELECOMVISITANTES"  seja a do local de trabalho, e a rede "Lar Doce Lar" seja a de sua residência, tmeos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014, coletando e armazenando as redes sem fio ao seu alcance.
+
+
+ Provavelmente, o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta.
+ 
+ Já na Análise 2, com redes coletadas no dia 30/07, consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residencia a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor.
+
+
+Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha.
+
+
+
+
+\begin{figure}[hbt]
+  \includegraphics{analise1}
+  \caption{Análise 1 - Poucas redes coletadas em percurso}
+\end{figure}
+
+\begin{figure}[hbt]
+  \includegraphics[scale=0.8]{analise201}
+  \caption{Análise 2 - Parte 1 - Muitas redes coletadas em percurso}
+\end{figure}
+
+\begin{figure}[hbt]
+  \includegraphics[scale=0.8]{analise202}
+  \caption{Análise 2 - Parte 2 - Muitas redes coletadas em percurso}
+\end{figure}
+
+\begin{figure}[hbt]
+  \includegraphics[scale=0.8]{analise203}
+  \caption{Análise 2 - Parte 3 - Muitas redes coletadas em percurso}
+\end{figure}
+
 
 \chapter{Conclusão}
+Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado e em poder contribuir com a pesquisa de predição da localização de um nó em uma rede móvel com os dados capturados através do produto final deste trabalho, o aplicativo PheroCast App.
+
+Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Também fica como sugestão, outras análises mais criteriosas que possam contribuir mais ainda para a comunidade.
+
+Para melhorar mais ainda o trabalho, indicamos também um serviço de armazenamento na nuvem com uma base de dados mais robusta, a fim de gerar relatórios mais analíticos, pois o Google Docs, serviço utilizado nesse trabalho, não atende uma grande demanda de dados, visto que com os dados coletados neste trabalho a performance na operação das planilhas é bem pequena. 
+
+Concluímos também que a arquitetura, implementação e desenvolvimento do aplicativo bem como a produção das análises com os dados produzidos pela utilização do software por algumas pessoas da comunidade, foi consequência da base de conhecimento adquirida durante o curso de Sistemas de Informação da Universidade Federal de Uberlândia, bem como o tempo de pesquisa aplicado nesse trabalho. Tais ações e resultados implicam no sucesso deste trabalho de conclusão de curso.
 
 %\chapter{Revisão Bibliográfica}
 %TCC:
