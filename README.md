@@ -2,4 +2,4 @@
 
 Sistemas de Informação - UFU 
 
-Orientador: Lásaro Camargo
+Orientador: Lásaro Camargos
