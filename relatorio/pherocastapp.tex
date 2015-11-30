@@ -9,6 +9,7 @@ brazil]{facom-ufu-abntex2}
 \definecolor{jpurple}{rgb}{0.5,0,0.35}
 % Configurando layout para mostrar codigos Java
 \usepackage{listings}
+\usepackage{longtable}
 \lstset{
   language=Java,
   basicstyle=\ttfamily\small, 
@@ -132,11 +133,12 @@ Agradeço a Deus, minha esposa e ao meu orientador Lasaro Camargos pelo apoio e 
 
 
 \begin{resumo} %TCC:
-
+Com o objetivo de melhorarmos os algoritmos de predição da localização de um nó em uma ambiente de redes móveis, necessitamos de dados reais como os que foram gerados através do produto final desse trabalho, o PheroCast App. Um aplicativo Android que coleta as redes sem fio ao alcance do dispositvo e armazena para futuras análises.
+ 
  \vspace{\onelineskip}
     
  \noindent
- \textbf{Palavras-chave}: Manet, Android, Redes Oportunísticas%TCC:
+ \textbf{Palavras-chave}: Manet, Vanet, Android, Predição de Localização%TCC:
 \end{resumo}
 
 % ---
@@ -212,6 +214,7 @@ MANET é a abreviação de Mobile Ad-Hoc Networks, a qual se define pelas redes 
 Tambem definida por MANET pode ser conceituada como um sistema autonomo de servidores moveis (que tambem servem de roteadores), os quais unidos formam uma rede de comunicacao representada por um grafo.
 
 Os nós em uma MANET se movem arbitrariamente, e essa é a grande característica da rede, mas também o principal ofensor na qualidade da comunicação disponibilizada nesse ambiente, pois a arquitetura entre eles deve sempre estar se adaptando para os novos meios em que estão inseridos.
+\cite{de2002mobile}
 
 Desde que surgiu, a MANET tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa de crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa por esse paradigma. Apartir das pesqusias intensas na MANET, surgiram outras redes móveis baseadas em sua proposta inicial. Como por exemplo a VANET que será introduzida na próxima seção.
 
@@ -243,6 +246,7 @@ PheroCast é o nome que se deu à abordagem de previsão da localização futura
 Nessa abordagem, o algoritmo de previsão é desenvolvido para ser processado nos próprios nós móveis. Assim, a cada intervalo de tempo definido, o nó registra um rastro de onde está. Daí vem a semelhança com o "Pheronomium" deixado no rastro por onde a formiga passa.
 
 Assim, com o histórico dos "traces" de um determinado nó na forma de um grafo, é possível determinar uma probabilidade de onde ele estará em determinado horário apartir de um certo lugar.
+ß
 \paragraph{Resultados}
 Segundo \cite{6838650} foi feita uma avaliação do algoritmo PheroCast usando os caminhos dos onibus de Seattle Metro Transit, que vale a pena ressaltar, não foram extraídos para a abordagem nem com o intervalo de tempo ideal. Foi descoberto que a abordagem obteve bons resultados em relação à predição das futuras posicões dos onibus. A avaliação obteve 77,8\% de resultados positivos
 \paragraph{Problema}
@@ -265,9 +269,9 @@ O objetivo é que o sistema seja utilizado por mais de um usuário para que assi
 
 	Como as formigas passam a vida em contato com o solo, em suas caminhadas, elas deixam um rastro de feromônio que pode ser seguida por ouras formigas. Trazendo para o nosso contexto, um nó em uma rede móvel pode sinalizar os pontos em que passou, e assim construir um caminho que percorreu de um ponto a outro. Podemos também afirmar com esse conceito que um nó está em uma localização X se X é o sinal mais perto de sua posição.
 	
-	Cada marca, ou log deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção  tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização é pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco "feromônio" foi liberado.
+	\cite{6838650} Cada marca, ou log deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção  tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização é pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco "feromônio" foi liberado.
 	
-	No PheroCast esses sinais que contém a localização e a hora, são convertidos em Phero Trails, um dígrafo que contém como vértices os locais visitados pelos nós, e a direção em que estão (norte, sul, leste, oeste) ligados por arestas de forma em que represente a movimentação do nó, e assim seu caminho o qual possui uma localização inicial e uma final.
+	No PheroCast esses sinais que contém a localização e a hora, são convertidos em Phero Trails, um dígrafo que contém como vértices os locais visitados pelos nós, e a direção em que estão (norte, sul, leste, oeste) ligados  por arestas de forma em que represente a movimentação do nó, e assim seu caminho o qual possui uma localização inicial e uma final.
 	
 	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes, também definimos as possíveis rotas entre um determinado ponto e outro.
 	
@@ -283,9 +287,8 @@ O objetivo é que o sistema seja utilizado por mais de um usuário para que assi
 
 	Tal framework disponibiliza alguns componentes, os quais alguns deles foram utilizados na construção desse trabalho.
 	Iremos detalhar cada componente a seguir:
+	\cite{googleand}
 	
-	http://developer.android.com/guide/components/fundamentals.html
-
 	\subsection{Activities}
 	O componente Activity representa uma única tela com interface para o usuário. Por exemplo, imaginemos um aplicativo de lista de compras, iremos ter uma Activity para exibir a lista de compras, outra activity para adicionar um novo produto na lista de compras, e outra para exibir um relatório de quanto gastamos no mês.
 	Uma Activity é implementada no código do aplicativo extendendo a classe Activity do Android.
@@ -366,7 +369,9 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
  
  A responsabilidade da coleta das redes sem fio é do objeto instanciado da classe WifiManager da API do Android, o qual é executado através do método startScan(), após a tarefa registrar o receptor das redes encontradas.
  
-  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são BSSID, SSID, Capabilities, Frequency, level e a hora que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
+  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são BSSID, SSID, Capabilities, Frequency, level e o momento em que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
+ 
+ Importante lembrar que após o serviço de receber e armazenar as redes capturadas, a situação anterior ao processamento do sinal wireless do aparelho é mantida, ou seja, caso o aparelho esteja com a funcionalidade wifi desligada, após o processamento (que liga a mesma), a tarefa principal é responsável por desligá-la. 
  
   Para armazenar na nuvem as redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento que utilizamos através da classe HttpRequest, caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
   
@@ -381,7 +386,9 @@ Como tópico de trabalhos futuros, pretendemos utilizar um codificador do dado q
 \chapter{Resultados}
 \section{Dados Coletados}
 Após divulgação do trabalho para amigos e comunidade, obtivemos mais de 45 mil registros de redes coletadas em um período de aproximadamente um mês. Compilamos os dados com apenas 5 usuários, os quais foram mais colaborativos em questão de quantidade e consideramos o suficiente para analisar os dados.
-Com os dados coletados e separados por colaborador compilados em uma planilha, conseguimos o suficiente para realizar algumas análises sobre as informações adquiridas. Tais análises, serão exibidas na próxima seção.
+Com os dados coletados e separados por colaborador compilados em uma planilha, conseguimos o suficiente para realizar algumas análises sobre as informações adquiridas.
+
+ Tais análises, serão exibidas na próxima seção.
 
 \section{Análise}
 Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, consideramos que a rede "ALGARTELECOMVISITANTES"  seja a do local de trabalho, e a rede "Lar Doce Lar" seja a de sua residência, tmeos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014, coletando e armazenando as redes sem fio ao seu alcance.
@@ -394,36 +401,217 @@ Por se tratar de uma quantidade grande de dados coletados, poderíamos ter reali
 
 Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha.
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\small
+\setlength\tabcolsep{2pt}
+\begin{center}
+\begin{longtable}{|c|c|c|c|c|c|}
+\caption{Análise 1}
+\centering
+\label{Análise 1}
+\hline
+\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endfirsthead
+\multicolumn{6}{c}%
+{\tablename\ \thetable\ -- \textit{Continuação da página anterior}} \\
+\hline
+\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endhead
+\hline \multicolumn{6}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\hline
+\endlastfoot
+ALGARTELECOM\_VISITANTES  & 00:1f:ca:5f:12:73 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Invicta                   & 28:10:7b:3c:31:84 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Maurilio                  & 10:fe:ed:c8:ab:e6 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Tudo vidros               & c8:d7:19:eb:f6:c7 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+b0c76a                    & 54:be:f7:70:75:4b & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+PREMIUMHFC                & bc:f6:85:41:b3:b0 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+CTBC                      & 9c:d6:43:7a:fd:e3 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Tudo vidros               & c8:d7:19:eb:f6:c7 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+HP-Print-4C-LaserJet 1102 & f4:b7:e2:3c:67:4c & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Tudo vidros               & c8:d7:19:eb:f6:c7 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+CTBC                      & 9c:d6:43:7a:fd:e3 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+Invicta                   & 28:10:7b:3c:31:84 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+ALGARTELECOM\_VISITANTES  & 00:1f:ca:5f:12:73 & 30/07/2014 06:04:41 & godinhopatrick@gmail.com \\
+SPEED\_STM2               & 00:0c:42:26:73:39 & 30/07/2014 06:16:03 & godinhopatrick@gmail.com \\
+SPEED\_STM2               & 00:0c:42:26:73:39 & 30/07/2014 06:16:03 & godinhopatrick@gmail.com \\
+HM2 - FONE: 3084-9493     & 00:80:48:73:fb:db & 30/07/2014 06:23:01 & godinhopatrick@gmail.com \\
+HM2 - FONE: 3084-9493     & 00:80:48:73:fb:db & 30/07/2014 06:23:01 & godinhopatrick@gmail.com \\
+CTBC                      & 9c:d6:43:7a:bc:0b & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
+Amanda                    & c0:a0:bb:0f:68:de & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
+CTBC                      & 9c:d6:43:7a:bc:0b & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
+Amanda                    & c0:a0:bb:0f:68:de & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
+Lar Doce Lar              & c0:a0:bb:0e:fa:1e & 30/07/2014 06:28:28 & godinhopatrick@gmail.com
+\end{longtable}
+\end{center}
 
+\small
+\setlength\tabcolsep{2pt}
+\begin{center}
+\begin{longtable}{|c|c|c|c|c|c|}
+\caption{Análise 2}
+\centering
+\label{Análise 2}
+\hline
+\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endfirsthead
+\multicolumn{6}{c}%
+{\tablename\ \thetable\ -- \textit{Continuação da página anterior}} \\
+\hline
+\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endhead
+\hline \multicolumn{6}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\hline
+\endlastfoot
+UFU-Portal & d8:c7:c8:d5:79:41 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+UFU-Portal & d8:c7:c8:d5:79:41 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+DaComp & f8:1a:67:13:79:90 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+dlink & 00:21:91:6f:18:00 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+UFU-Portal & d8:c7:c8:d5:78:a1 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+UFU-Portal & d8:c7:c8:d5:78:a1 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+OpenWrt & 90:f6:52:3e:ca:58 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+OpenWrt & 90:f6:52:3e:ca:58 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
+BENARENGE & 00:1d:1a:0a:91:ea & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+MM GAMA & 20:aa:4b:a9:b7:57 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+b7b380 & 54:be:f7:87:b0:a7 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+ultrabl\_1149\_20m & 20:aa:4b:4f:a9:ca & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+b13c34 & 54:be:f7:71:bc:bd & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+22ks & 90:f6:52:68:7c:c2 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+VERTICAL\_FILMES & 20:aa:4b:d0:62:c3 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+WJS & 2a:a4:3c:7d:48:52 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+CLIENTE-DGUSTO & 90:f6:52:a6:36:32 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+Serafim & d8:5d:4c:d6:40:2c & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+b0ed44 & 54:be:f7:6c:51:7b & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+enio & c8:be:19:01:b8:a8 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+NetVirtua\_582 & 90:0d:cb:f4:97:00 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+c7917c & 70:54:d2:c7:03:04 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+abacaxi & 70:54:d2:c3:4c:43 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+Marcio D-Link & 28:10:7b:3e:23:fb & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+c7184a & 70:54:d2:c6:16:bf & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+CAETES02 & 98:fc:11:ce:e6:ae & 04/08/2014 05:45:07 & lasaro@gmail.com \\
+Viveiro Rosalia & 9c:d6:43:7b:51:d3 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+EDC & 20:aa:4b:d8:84:f3 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+Bom jesus & 1c:7e:e5:99:68:10 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+fransergio de camargo & 84:c9:b2:cc:ce:3d & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+c6eb7a & 70:54:d2:c4:25:27 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+versii\_ap2 & 94:0c:6d:aa:1e:e6 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+HarryPotter & 64:66:b3:da:c7:95 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+Advocacia & 00:1d:0f:d5:e2:de & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+Nasa Hi-Fi & b0:48:7a:f2:2a:5a & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+HP-Print-96-LaserJet 1102 & 1c:3e:84:f5:ef:96 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+vargas & 20:aa:4b:d0:63:32 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+Francine & c8:d7:19:60:95:90 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+ALINEMAMEDE-PC\_Network & 54:e6:fc:a4:d8:48 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
+Consultorio & 78:54:2e:ee:28:80 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+DIRECT-kJSCX-3400 Series & 02:15:99:d0:07:09 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+ATENDI & b8:62:1f:52:8f:36 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+Exclusiviagem & 20:aa:4b:55:5b:bc & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+c6f1fe & 70:54:d2:c1:63:1d & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+Bambola Pizzaria & 64:66:b3:82:1c:c6 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+navegantes & 08:10:74:32:8f:ba & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+c6fcd2 & 70:54:d2:c3:44:ab & 04/08/2014 05:54:11 & lasaro@gmail.com \\
+Exclusiviagem & 20:aa:4b:55:5b:bc & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+c6f1fe & 70:54:d2:c1:63:1d & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+navegantes & 08:10:74:32:8f:ba & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+c6fcd2 & 70:54:d2:c3:44:ab & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+TELEMACO2013 & 20:aa:4b:55:5c:67 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+ATENDI & b8:62:1f:52:8f:36 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+SalaTv & 78:54:2e:ee:28:8c & 04/08/2014 05:58:02 & lasaro@gmail.com \\
+Consultorio & 78:54:2e:ee:28:80 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+Abgail & 20:aa:4b:b4:86:17 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+guarita unifi & 24:a4:3c:7a:ce:2b & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+residencia unifi & 2a:a4:3c:0d:23:1e & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+b71b76 & 54:be:f7:6f:f8:bb & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+rachel\_sala & c0:4a:00:6b:d6:ec & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+DIRECT-CHSCX-3400 Series & 32:cd:a7:5d:1d:79 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+RAZZAO & a0:f3:c1:a3:c7:ea & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
+b113f6 & 54:be:f7:71:78:d1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+estancia santa rosalia & 20:aa:4b:55:60:cf & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+NADSON & c8:3a:35:11:2f:78 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Advocacia & 00:1d:0f:d5:e2:de & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Danger\_zone & 14:d6:4d:83:01:a4 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+ULTRABL\_20MB\_1315 & c8:d7:19:eb:ec:44 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+cris e rique & 10:fe:ed:32:ef:7a & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+advogados\_ & 70:54:d2:c4:06:67 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+GVT-F26F & 28:10:7b:96:f2:70 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+HP-Print-96-LaserJet 1102 & 1c:3e:84:f5:ef:96 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+inove & bc:f6:85:de:d0:a1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+ & 00:24:82:22:f6:ba & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+familhareis & 20:aa:4b:de:5d:cb & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+WIFI-UNIUBE 2 & 00:24:82:62:f6:b8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+WIFI-UNIUBE & 00:24:82:22:f6:b8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+belkin54g & 00:1c:df:98:3d:e4 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Rone & a0:f3:c1:46:da:7f & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Ultra Telecom & 00:01:e3:e2:79:f6 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Play music bar & f8:1a:67:c4:fb:70 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Loranne & 9c:d6:43:7a:dc:13 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Kamel\_Home & 00:4f:67:02:d9:e3 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+MEROLA & 00:1c:10:57:94:90 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+PaisagemBrasil & 00:25:86:c7:d7:02 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Rede & 78:52:1a:7c:d9:b9 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+MMCV38 & 90:f6:52:ef:4c:a8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Amanda & 20:aa:4b:55:5c:61 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+MURILO & c8:be:19:8a:86:96 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+alexandrefreitas & 78:44:76:07:5b:c1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+Ana\_Carolina & 10:fe:ed:33:17:7a & 04/08/2014 06:09:44 & lasaro@gmail.com \\
+c6f1ec & 70:54:d2:c1:a0:31 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+MARIO 3.0 & 70:54:d2:b4:a5:d2 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+Yuji & 74:ea:3a:fc:3b:58 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+paulocesar & 70:54:d2:c1:c1:dd & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+Proservice piso2 & 34:08:04:c0:5f:1c & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c78666 & 70:54:d2:c3:bd:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+vierafa & a0:f3:c1:43:2e:88 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+Fred & 10:bf:48:8f:b3:5c & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+b76766 & 54:be:f7:6f:c1:87 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+Cavalo de Troia & 70:54:d2:c1:95:fd & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c7832a & 70:54:d2:c1:60:81 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+VELOSO & 54:be:f7:6d:0a:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+Netvirtua\_1366 & e0:ce:c3:d6:ff:ce & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c6f156 & 70:54:d2:c3:5f:1f & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+fmm & 70:54:d2:c3:60:1b & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c6e38e & 70:54:d2:c2:fa:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+LULUZINHAS & 70:54:d2:c1:cd:99 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+b7692e & 54:be:f7:6f:c5:53 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c74646 & 70:54:d2:c3:bc:b7 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+c6ea7e & 70:54:d2:c2:f2:af & 04/08/2014 06:12:56 & lasaro@gmail.com \\
+VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+b7692e & 54:be:f7:6f:c5:53 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+c74646 & 70:54:d2:c3:bc:b7 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+c6ea7e & 70:54:d2:c2:f2:af & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+c6e118 & 70:54:d2:c3:57:3f & 04/08/2014 06:17:05 & lasaro@gmail.com \\
+c70416 & 70:54:d2:ad:d2:3b & 04/08/2014 06:17:06 & lasaro@gmail.com \\
+VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
+spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
+nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:18:06 & lasaro@gmail.com \\\end{longtable}
+\end{center}
 
-
-\begin{figure}[hbt]
-  \includegraphics{analise1}
-  \caption{Análise 1 - Poucas redes coletadas em percurso}
-\end{figure}
-
-\begin{figure}[hbt]
-  \includegraphics[scale=0.8]{analise201}
-  \caption{Análise 2 - Parte 1 - Muitas redes coletadas em percurso}
-\end{figure}
-
-\begin{figure}[hbt]
-  \includegraphics[scale=0.8]{analise202}
-  \caption{Análise 2 - Parte 2 - Muitas redes coletadas em percurso}
-\end{figure}
-
-\begin{figure}[hbt]
-  \includegraphics[scale=0.8]{analise203}
-  \caption{Análise 2 - Parte 3 - Muitas redes coletadas em percurso}
-\end{figure}
-
+Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso aplicativo bem como o que foi produzido através dele.
 
 \chapter{Conclusão}
-Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado e em poder contribuir com a pesquisa de predição da localização de um nó em uma rede móvel com os dados capturados através do produto final deste trabalho, o aplicativo PheroCast App.
+Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado e em poder contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros" como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
 
-Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Também fica como sugestão, outras análises mais criteriosas que possam contribuir mais ainda para a comunidade.
+Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Outro ponto a ser implementado futuramente, como mencionado, será a limpeza dos dados para garantir a anonimidade dos contribuintes dos dados.
 
-Para melhorar mais ainda o trabalho, indicamos também um serviço de armazenamento na nuvem com uma base de dados mais robusta, a fim de gerar relatórios mais analíticos, pois o Google Docs, serviço utilizado nesse trabalho, não atende uma grande demanda de dados, visto que com os dados coletados neste trabalho a performance na operação das planilhas é bem pequena. 
+Para melhorar mais ainda o trabalho, indicamos também um serviço de armazenamento na nuvem com uma base de dados mais robusta, a fim de gerar relatórios mais analíticos, pois o Google Docs, serviço utilizado nesse trabalho, não atende uma grande demanda de dados, visto que com os dados coletados neste trabalho a performance ao operar as planilhas é bem pequena. 
 
 Concluímos também que a arquitetura, implementação e desenvolvimento do aplicativo bem como a produção das análises com os dados produzidos pela utilização do software por algumas pessoas da comunidade, foi consequência da base de conhecimento adquirida durante o curso de Sistemas de Informação da Universidade Federal de Uberlândia, bem como o tempo de pesquisa aplicado nesse trabalho. Tais ações e resultados implicam no sucesso deste trabalho de conclusão de curso.
 
@@ -442,7 +630,9 @@ Concluímos também que a arquitetura, implementação e desenvolvimento do apli
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\bibliographystyle{plain}
+\nocite{6710069}
+\nocite{IBM:Android}
+
 \bibliography{bib}
 
 

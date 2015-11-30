@@ -37,30 +37,30 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Desenvolvimento}}{18}{chapter.4}
 \contentsline {section}{\numberline {4.1}Aplicativo}{18}{section.4.1}
-\contentsline {section}{\numberline {4.2}Google Docs}{18}{section.4.2}
-\contentsline {section}{\numberline {4.3}Limpeza dos dados}{18}{section.4.3}
+\contentsline {section}{\numberline {4.2}Google Docs}{19}{section.4.2}
+\contentsline {section}{\numberline {4.3}Limpeza dos dados}{19}{section.4.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados}}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Dados Coletados}{19}{section.5.1}
-\contentsline {section}{\numberline {5.2}An\IeC {\'a}lise}{19}{section.5.2}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados}}{20}{chapter.5}
+\contentsline {section}{\numberline {5.1}Dados Coletados}{20}{section.5.1}
+\contentsline {section}{\numberline {5.2}An\IeC {\'a}lise}{20}{section.5.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Conclus\IeC {\~a}o}}{20}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Conclus\IeC {\~a}o}}{26}{chapter.6}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias}{21}{section*.9}
+\contentsline {chapter}{Refer\^encias}{27}{section*.9}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANEXO \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{22}{section*.10}
+\contentsline {part}{\uppercase {Anexos}}{28}{section*.10}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {C\IeC {\'o}digo fonte}}{23}{appendix.anexochapback.1}
-\contentsline {section}{\numberline {A.1}MainActivity.java}{23}{section.anexochapback.1.1}
-\contentsline {section}{\numberline {A.2}HttpRequest.java}{26}{section.anexochapback.1.2}
-\contentsline {section}{\numberline {A.3}NetworkChangeReceiver.java}{31}{section.anexochapback.1.3}
-\contentsline {section}{\numberline {A.4}NetworkPoint.java}{33}{section.anexochapback.1.4}
-\contentsline {section}{\numberline {A.5}NetworkPointDAO.java}{35}{section.anexochapback.1.5}
-\contentsline {section}{\numberline {A.6}PersistenceHelper.java}{39}{section.anexochapback.1.6}
-\contentsline {section}{\numberline {A.7}UserEmailFetcher.java}{40}{section.anexochapback.1.7}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {C\IeC {\'o}digo fonte}}{29}{appendix.anexochapback.1}
+\contentsline {section}{\numberline {A.1}MainActivity.java}{29}{section.anexochapback.1.1}
+\contentsline {section}{\numberline {A.2}HttpRequest.java}{32}{section.anexochapback.1.2}
+\contentsline {section}{\numberline {A.3}NetworkChangeReceiver.java}{37}{section.anexochapback.1.3}
+\contentsline {section}{\numberline {A.4}NetworkPoint.java}{39}{section.anexochapback.1.4}
+\contentsline {section}{\numberline {A.5}NetworkPointDAO.java}{41}{section.anexochapback.1.5}
+\contentsline {section}{\numberline {A.6}PersistenceHelper.java}{45}{section.anexochapback.1.6}
+\contentsline {section}{\numberline {A.7}UserEmailFetcher.java}{46}{section.anexochapback.1.7}
