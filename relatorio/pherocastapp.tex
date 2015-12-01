@@ -35,6 +35,9 @@ brazil]{facom-ufu-abntex2}
 %\coorientador{Algum?} %TCC 
 
 
+\usepackage{todonotes}
+
+
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -134,7 +137,7 @@ Agradeço a Deus, minha esposa e ao meu orientador Lasaro Camargos pelo apoio e 
 
 \begin{resumo} %TCC:
 Com o objetivo de melhorarmos os algoritmos de predição da localização de um nó em uma ambiente de redes móveis, necessitamos de dados reais como os que foram gerados através do produto final desse trabalho, o PheroCast App. Um aplicativo Android que coleta as redes sem fio ao alcance do dispositvo e armazena para futuras análises.
- 
+ \todo[inline]{Informal demais. Siga a mestra estrutura do documento: contexto, justificativa, resultados.}
  \vspace{\onelineskip}
     
  \noindent
@@ -212,11 +215,14 @@ MANET é a abreviação de Mobile Ad-Hoc Networks, a qual se define pelas redes 
 
 
 Tambem definida por MANET pode ser conceituada como um sistema autonomo de servidores moveis (que tambem servem de roteadores), os quais unidos formam uma rede de comunicacao representada por um grafo.
+\todo[inline]{Diversos erros de acentuacao, concordancia e, o pior, a frase nao faz muito sentido.}
 
 Os nós em uma MANET se movem arbitrariamente, e essa é a grande característica da rede, mas também o principal ofensor na qualidade da comunicação disponibilizada nesse ambiente, pois a arquitetura entre eles deve sempre estar se adaptando para os novos meios em que estão inseridos.
 \cite{de2002mobile}
 
 Desde que surgiu, a MANET tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa de crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa por esse paradigma. Apartir das pesqusias intensas na MANET, surgiram outras redes móveis baseadas em sua proposta inicial. Como por exemplo a VANET que será introduzida na próxima seção.
+
+
 
 \subsection{VANET}
 \subsubsection{Conceito}
@@ -234,8 +240,10 @@ Alem do problema citado acima, existe um agravante relacionado a velocidade de c
 \subsection{Predição de localização}
 \subsubsection{Motivo}
 A predição da localidade de um nó, o qual pode ser um automóvel, uma pessoa com um dispositivo móvel, é algo bastante motivador a se desenvolver pelo fato de trazer otimizações da comunicação das redes MANET e suas derivadas, através da gestão proativa. \cite{6838650}
+\todo[inline]{Portugues horrível. }
 
 Por exemplo, caso um nó mande uma requisição para outro e logo após mude de localização, o responsável pela resposta será proativo o bastante para saber em qual posição o destinatário estará, resolvendo assim o problema da mobilidade, o qual é o principal desafio da VANET.
+\todo[inline]{Isso não é automático dado a predição. Predição só possibilita, mas ainda precisa ser desenvolvido.}
 
 A predição de localização também é alvo de escopo de várias aplicações com o objetivo por exemplo de prever e otimizar tráfego em cidades inteligentes, ou até prever potenciais clientes para um passeio ecológico.
 
@@ -243,12 +251,13 @@ A predição de localização também é alvo de escopo de várias aplicações 
 \paragraph{Conceito}
 PheroCast é o nome que se deu à abordagem de previsão da localização futura de um nó em uma rede ad-hoc móvel. Foi nomeado assim pela semelhança com o fenomeno que acontece na colonia das formigas, o qual para alertar problemas, ou marcar o caminho, por onde a formiga passar, ela deixará um rastro, formando assim um caminho.
 
-Nessa abordagem, o algoritmo de previsão é desenvolvido para ser processado nos próprios nós móveis. Assim, a cada intervalo de tempo definido, o nó registra um rastro de onde está. Daí vem a semelhança com o "Pheronomium" deixado no rastro por onde a formiga passa.
+Nessa abordagem, o algoritmo de previsão é desenvolvido para ser processado nos próprios nós móveis. Assim, a cada intervalo de tempo definido, o nó registra um rastro de onde está. Daí vem a semelhança com o ``Pheronomium'' \todo{forma correta de se colocar aspas em latex.} deixado no rastro por onde a formiga passa.
 
 Assim, com o histórico dos "traces" de um determinado nó na forma de um grafo, é possível determinar uma probabilidade de onde ele estará em determinado horário apartir de um certo lugar.
-ß
+
 \paragraph{Resultados}
-Segundo \cite{6838650} foi feita uma avaliação do algoritmo PheroCast usando os caminhos dos onibus de Seattle Metro Transit, que vale a pena ressaltar, não foram extraídos para a abordagem nem com o intervalo de tempo ideal. Foi descoberto que a abordagem obteve bons resultados em relação à predição das futuras posicões dos onibus. A avaliação obteve 77,8\% de resultados positivos
+Segundo \cite{6838650} foi feita uma avaliação do algoritmo PheroCast usando os caminhos dos onibus de Seattle Metro Transit, que vale a pena ressaltar, não foram extraídos para a abordagem nem com o intervalo de tempo ideal. Foi descoberto que a abordagem obteve bons resultados em relação à predição das futuras posicões dos onibus. A avaliação obteve 77,8\% de resultados positivos. \todo[inline]{Este trabalho já foi extendido no mestrado o enrique fynn. entre em contato e pegue as atualizações com ele.}
+
 \paragraph{Problema}
 O grande problema do PheroCast é a sua avaliação limitada, ou seja, é necessário, para uma abordagem com essas características, uma avaliação extensa com dados reais, que ssimulam de verdade a mobilidade humana. 
 
@@ -257,6 +266,8 @@ Atualmente não existem "traces" reais, e sim módulos de mobilidade sintéticos
 A proposta deste trabalho é desenvolver um sistema que rode em dispositivos móveis, para capturar "traces" reais de mobilidade humana. Para tal, o sistema irá coletar em um intervalo de tempo, todas as redes wireless, bem como suas informações, ao redor do dispositivo móvel do usuário e armazenar em um servidor para que os dados sejam compilados e utilizados para avaliação do PheroCast.
 
 O objetivo é que o sistema seja utilizado por mais de um usuário para que assim tenhamos grande diversidade de histórico de traces.
+
+\todo{mal escrito.}
 
 \chapter{Referencial Teórico}
 \section{PheroCast}
@@ -276,7 +287,7 @@ O objetivo é que o sistema seja utilizado por mais de um usuário para que assi
 	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes, também definimos as possíveis rotas entre um determinado ponto e outro.
 	
 	Dado um Phero Map definido, temos todas as variáveis que o algoritmo de previsão de uma futura localização do nó, descrita no Phero Cast necessita. Tais elas são: localização, direção, quantidade de vezes que passou pela localização. 
-
+	
  	O produto final desse trabalho, tem como objetivo produzir dados reais de localização, tratando os feromônios como registros de rede wifi,registrados pelo dispositivo móvel em um determinado intervalo de tempo, e armazenando em um local para ser reproduzidas em mapas e diagramas, como aborda o Phero Cast.
 	
 
@@ -310,7 +321,12 @@ Além disso, essa técnica permite a criação de Shared Content Providers, que 
 	\subsection{Arquivo Manifest}
 	Para que o Android consiga iniciar um componente da aplicação, o sistema deve saber que esse componente existe através do arquivo AndroidManifest.xml. A aplicação desenvolvida deve conter as declarações de todos os componentes nesse arquivo, o qual está sempre localizado na pasta raíz do projeto.		
 
+
+\todo{falar sobre redes sem fio wifi.}
+
 \chapter{Proposta}
+\todo{esta secao toda esta muito mal escrita para a versao final.}
+
 \section{Arquitetura}
 A arquitetura proposta consiste em duas partes, clente e servidor. O cliente é responsável pela coleta dos dados, como posição atual, lista de SSID visíveis, e quaisquer outros dados que se deseje capturar. Oportunisticamente o cliente enviará os dados ao servidor. O servidor deverá consumir os dados enviados pelo dispositivo através de uma interface REST implementada e armazenar em um banco de dados, como mostra na Figura 1.  A seguir detalhamos cada um das partes.
 
@@ -321,7 +337,7 @@ A arquitetura proposta consiste em duas partes, clente e servidor. O cliente é 
 
 
 \subsection{Cliente}
-Do lado do cliente desenvolveremos um sistema para rodar em dispositivos com o sistema operacional Android, utilizando a linguagem Java.
+Do lado do cliente desenvolveremos \todo{voce esta escrevendo a versao final, nao o projeto.}um sistema para rodar em dispositivos com o sistema operacional Android, utilizando a linguagem Java.
 
 \begin{figure}[hbt]
   \includegraphics [scale=.4] {pherocast1}
@@ -353,7 +369,11 @@ O servidor deverá armazenar as informações virão do cliente, como:
   
 \subsection{Limpeza dos dados}
 O sistema deverá tratar os dados do cliente com anonimidade, ou seja deverá haver algoritmos de segurança que tornem os dados do cliente anonimos, para preservar a identidade do usuário.
+
+
 \chapter{Desenvolvimento}
+
+\todo{Descreva o trabalho em mais detalhes. detalhes de implementacao.}
 \section{Aplicativo}
 Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as redes wireless disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
 
@@ -378,6 +398,8 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
 
  \section{Google Docs}
 Com o objetivo de simular o serviço de armazenamento na nuvem, utilizamos o Google Docs, o qual nos fornece um serviço de criação, edição e utilização de formulários de pesquisa, onde as respostas são convertidas em planilhas compartilhadas. Assim, na nossa requisição POST, com a mesma URL e parâmetros que o botão de responder o formulário que criamos com as informações esperadas das redes. Com isso, obtivemos várias linhas em planilha contendo informações das redes sem fio, a hora em que foram capturadas e o usuário responsável pela coleta.
+
+\todo{descreva em detalhes}
 
 \section{Limpeza dos dados}
 Como tópico de trabalhos futuros, pretendemos utilizar um codificador do dado que carrega as informações do usuário, tornando assim os dados limpos e possíveis de serem colaborados com a comunidade em trabalhos que necessitem de dados reais, como no caso do PheroCast.
@@ -405,11 +427,10 @@ Para considerarmos que um local é o trabalho do usuário e outro é a residênc
 % \usepackage{graphicx}
 \small
 \setlength\tabcolsep{2pt}
-\begin{center}
-\begin{longtable}{|c|c|c|c|c|c|}
+\begin{table}
 \caption{Análise 1}
-\centering
 \label{Análise 1}
+\begin{longtable}{|c|c|c|c|c|c|}
 \hline
 \textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
@@ -447,15 +468,14 @@ CTBC                      & 9c:d6:43:7a:bc:0b & 30/07/2014 06:25:45 & godinhopat
 Amanda                    & c0:a0:bb:0f:68:de & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
 Lar Doce Lar              & c0:a0:bb:0e:fa:1e & 30/07/2014 06:28:28 & godinhopatrick@gmail.com
 \end{longtable}
-\end{center}
+\end{table}
 
 \small
 \setlength\tabcolsep{2pt}
-\begin{center}
-\begin{longtable}{|c|c|c|c|c|c|}
+\begin{table}
 \caption{Análise 2}
-\centering
 \label{Análise 2}
+\begin{longtable}{|c|c|c|c|c|c|}
 \hline
 \textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
@@ -601,8 +621,9 @@ c6e118 & 70:54:d2:c3:57:3f & 04/08/2014 06:17:05 & lasaro@gmail.com \\
 c70416 & 70:54:d2:ad:d2:3b & 04/08/2014 06:17:06 & lasaro@gmail.com \\
 VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
 spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
-nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:18:06 & lasaro@gmail.com \\\end{longtable}
-\end{center}
+nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:18:06 & lasaro@gmail.com \\
+\end{longtable}
+\end{table}
 
 Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso aplicativo bem como o que foi produzido através dele.
 
