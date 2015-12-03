@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.20)  3 DEC 2015 02:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.10.20)  3 DEC 2015 02:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1071,7 +1071,11 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
 )
 \c@@todonotes@numberoftodonotes=\count201
-) (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.aux)
+) (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.aux
+
+LaTeX Warning: Label `An\IeC {\'a}lise 1' multiply defined.
+
+)
 \openout1 = `pherocastapp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -1189,17 +1193,7 @@ l.58
 
 ] [5
 
-] (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.lof
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 6 undefined on input line 2.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 6 undefined on input line 3.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 6 undefined on input line 4.
-
-) [6
+] (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.lof) [6
 
 ] (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.lot) [7
 
@@ -1212,56 +1206,22 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 56.
-) [9]
-
-LaTeX Warning: Citation `de2002mobile' on page 10 undefined on input line 218.
-
-[10
+) [9] [10
 
 
-]
+] [11] [12] [13
 
-LaTeX Warning: Citation `6838650' on page 11 undefined on input line 239.
-
-[11]
-
-LaTeX Warning: Citation `fynn' on page 12 undefined on input line 254.
-
-[12]
-
-LaTeX Warning: Citation `6838650' on page 13 undefined on input line 279.
-
-[13
-
-]
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 14 undefined on input line 292.
-
-<bt.png, id=206, 279.0425pt x 214.8025pt>
+] <bt.png, id=229, 279.0425pt x 214.8025pt>
 File: bt.png Graphic file (type png)
  <use bt.png>
 Package pdftex.def Info: bt.png used on input line 299.
 (pdftex.def)             Requested size: 251.13591pt x 193.32045pt.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 14 undefined on input line 300.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 14 undefined on input line 300.
-
-[14] <lan.png, id=212, 242.9075pt x 218.8175pt>
+ [14] <lan.png, id=239, 242.9075pt x 218.8175pt>
 File: lan.png Graphic file (type png)
  <use lan.png>
 Package pdftex.def Info: lan.png used on input line 306.
 (pdftex.def)             Requested size: 218.61472pt x 196.93391pt.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 15 undefined on input line 307.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 15 undefined on input line 307.
-
-[15 <./bt.png> <./lan.png>] <aviao.png, id=219, 538.01pt x 142.5325pt>
+ [15 <./bt.png> <./lan.png>] <aviao.png, id=250, 538.01pt x 142.5325pt>
 File: aviao.png Graphic file (type png)
  <use aviao.png>
 Package pdftex.def Info: aviao.png used on input line 315.
@@ -1271,45 +1231,158 @@ Overfull \hbox (29.20453pt too wide) in paragraph at lines 315--316
 [][] 
  []
 
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 16 undefined on input line 316.
-
-
-LaTeX Warning: Citation `tanenbaum2003redes' on page 16 undefined on input line 316.
-
-
-LaTeX Warning: Citation `googleand' on page 16 undefined on input line 328.
-
-<activity_lifecycle.png, id=220, 514.92375pt x 665.48625pt>
+<activity_lifecycle.png, id=257, 514.92375pt x 665.48625pt>
 File: activity_lifecycle.png Graphic file (type png)
  <use activity_lifecycle.png>
-Package pdftex.def Info: activity_lifecycle.png used on input line 335.
-(pdftex.def)             Requested size: 514.92249pt x 665.48462pt.
+Package pdftex.def Info: activity_lifecycle.png used on input line 337.
+(pdftex.def)             Requested size: 360.44417pt x 465.83719pt.
+ [16 <./aviao.png>] [17 <./activity_lifecycle.png>] [18] <arquiteturaProposta.png, id=281, 484.81125pt x 131.49126pt>
+File: arquiteturaProposta.png Graphic file (type png)
+ <use arquiteturaProposta.png>
+Package pdftex.def Info: arquiteturaProposta.png used on input line 369.
+(pdftex.def)             Requested size: 484.81006pt x 131.49092pt.
+
+Overfull \hbox (29.81006pt too wide) in paragraph at lines 369--370
+[][] 
+ []
+
+<pherocast1.png, id=282, 1033.8625pt x 226.8475pt>
+File: pherocast1.png Graphic file (type png)
+ <use pherocast1.png>
+Package pdftex.def Info: pherocast1.png used on input line 378.
+(pdftex.def)             Requested size: 413.53767pt x 90.73738pt.
+ [19
+
+ <./arquiteturaProposta.png> <./pherocast1.png>]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 396.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Runaway argument?
-{Ciclo de vida de uma Activity \cite {docAndroid} \end {figure} \par \ETC.
-! File ended while scanning use of \@xdblarg.
-<inserted text> 
-                \par 
-<*> pherocastapp.tex
-                    
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 396.
+ [20]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 420.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 421.
+ [21
 
-! Emergency stop.
-<*> pherocastapp.tex
-                    
-*** (job aborted, no legal \end found)
+] <diagrama.png, id=314, 1621.05624pt x 991.705pt>
+File: diagrama.png Graphic file (type png)
+ <use diagrama.png>
+Package pdftex.def Info: diagrama.png used on input line 458.
+(pdftex.def)             Requested size: 486.32063pt x 297.5138pt.
 
- 
+Overfull \hbox (31.32063pt too wide) in paragraph at lines 458--459
+[][] 
+ []
+
+[22] [23 <./diagrama.png (PNG copy)>] <form.png, id=332, 1052.93375pt x 829.0975pt>
+File: form.png Graphic file (type png)
+ <use form.png>
+Package pdftex.def Info: form.png used on input line 494.
+(pdftex.def)             Requested size: 421.16605pt x 331.63313pt.
+ [24] [25 <./form.png>] [26] [27
+
+]
+Overfull \hbox (41.25375pt too wide) in alignment at lines 550--555
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (41.25375pt too wide) in alignment at lines 555--561
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (41.25375pt too wide) in alignment at lines 561--563
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (41.25375pt too wide) in alignment at lines 563--565
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (41.25375pt too wide) in alignment at lines 565--586
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (41.25375pt too wide) in alignment at lines 586--592
+ [] [] [] [] 
+ []
+
+[28] [29] [30] [31] [32]
+
+LaTeX Warning: Citation `IBM:Android' undefined on input line 780.
+
+(/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.bbl (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.brf)
+\tf@brf=\write6
+\openout6 = `pherocastapp.brf'.
+
+ [33
+
+]
+bibitemlist
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 36.
+) [34
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 805.
+
+[35
+
+
+] [36
+
+] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.ind) 
+AED: lastpage setting LastPage
+[54]
+\tf@lof=\write7
+\openout7 = `pherocastapp.lof'.
+
+\tf@lot=\write8
+\openout8 = `pherocastapp.lot'.
+
+\tf@toc=\write9
+\openout9 = `pherocastapp.toc'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1489.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1489.
+ (/Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1489.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1489.
+Package rerunfilecheck Info: File `pherocastapp.brf' has not changed.
+(rerunfilecheck)             Checksum: <no file>.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1489.
+ ) 
 Here is how much of TeX's memory you used:
- 23015 strings out of 493117
- 403929 string characters out of 6135432
- 625019 words of memory out of 5000000
- 25937 multiletter control sequences out of 15000+600000
- 75111 words of font info for 52 fonts, out of 8000000 for 9000
+ 24636 strings out of 493117
+ 425936 string characters out of 6135432
+ 700052 words of memory out of 5000000
+ 26765 multiletter control sequences out of 15000+600000
+ 95681 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,12n,56p,690b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 68i,13n,56p,690b,2016s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on /Users/patrick/Documents/tcc/relatorio/.texpadtmp/pherocastapp.pdf (55 pages, 1137238 bytes).
+PDF statistics:
+ 1562 PDF objects out of 1728 (max. 8388607)
+ 1447 compressed objects within 15 object streams
+ 838 named destinations out of 1000 (max. 500000)
+ 505 words of extra memory for PDF output out of 10000 (max. 10000000)
+

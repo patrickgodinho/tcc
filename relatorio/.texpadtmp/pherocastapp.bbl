@@ -1,0 +1,47 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.2 }
+
+\bibitem[Coelho et al. 2014]{6838650}
+\abntrefinfo{Coelho et al.}{COELHO et al.}{2014}
+{COELHO, P. et al. Node position forecast in manet with pherocast.
+p. 73--80, May 2014.
+ISSN 1550-445X.}
+
+\bibitem[Conti e Giordano 2014]{6710069}
+\abntrefinfo{Conti e Giordano}{CONTI; GIORDANO}{2014}
+{CONTI, M.; GIORDANO, S. Mobile ad hoc networking: milestones, challenges, and
+  new research directions.
+\emph{Communications Magazine, IEEE}, v.~52, n.~1, p. 85--96, January 2014.
+ISSN 0163-6804.}
+
+\bibitem[Cordeiro e Agrawal 2002]{de2002mobile}
+\abntrefinfo{Cordeiro e Agrawal}{CORDEIRO; AGRAWAL}{2002}
+{CORDEIRO, C. de M.; AGRAWAL, D.~P. Mobile ad hoc networking.
+\emph{Center for Distributed and Mobile Computing, ECECS, University of
+  Cincinnati}, 2002.}
+
+\bibitem[Fynn 2015]{fynn}
+\abntrefinfo{Fynn}{FYNN}{2015}
+{FYNN, E. Previsao eficiente do posicionamento futuro de nos em redes moveis.
+2015.}
+
+\bibitem[Google 2015]{docAndroid}
+\abntrefinfo{Google}{GOOGLE}{2015}
+{GOOGLE. \emph{Documentacao Android}. 2015.
+Dispon{\'\i}vel em: \url{http://developer.android.com/}.}
+
+\bibitem[Google Android 2013]{googleand}
+\abntrefinfo{Google\ldots}{GOOGLE\ldots}{2013}
+{GOOGLE Android. [S.l.]: Novatec, 2013.}
+
+\bibitem[Tanenbaum 2003]{tanenbaum2003redes}
+\abntrefinfo{Tanenbaum}{TANENBAUM}{2003}
+{TANENBAUM, A. \emph{Redes de computadores}. CAMPUS - RJ, 2003.
+ISBN 9788535211856. Dispon{\'\i}vel em:
+  \url{https://books.google.com.br/books?id=0tjB8FbV590C}.}
+
+\end{thebibliography}

@@ -27,8 +27,8 @@
 \contentsline {subsection}{\numberline {2.3.1}Activities}{16}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Services}{16}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Content Providers}{17}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Broadcast receivers}{17}{subsection.2.3.4}
-\contentsline {subsection}{\numberline {2.3.5}Arquivo Manifest}{17}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.4}Broadcast receivers}{18}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}Arquivo Manifest}{18}{subsection.2.3.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Proposta}}{19}{chapter.3}
 \contentsline {section}{\numberline {3.1}Arquitetura}{19}{section.3.1}

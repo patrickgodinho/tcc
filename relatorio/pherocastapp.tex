@@ -328,18 +328,20 @@ Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se con
 	\cite{googleand}
 	
 	\subsection{Activities}
+	A Activity é o componente responsável por fazer o bootstrap do aplicativo, ou seja, tem o papel de gerenciar as primeiras ações do app. Para isso utiliza-se do seu ciclo de vida, tal conceito ilustrado na Figura 4.\
+	
 	O componente Activity representa uma única tela com interface para o usuário. Por exemplo, imaginemos um aplicativo de lista de compras, iremos ter uma Activity para exibir a lista de compras, outra activity para adicionar um novo produto na lista de compras, e outra para exibir um relatório de quanto gastamos no mês.
 	Uma Activity é implementada no código do aplicativo extendendo a classe Activity do Android.
 	
 	\begin{figure}[hbt]
-  		\includegraphics{activity_lifecycle}
-  		\caption{Ciclo de vida de uma Activity \cite{docAndroid}
+  		\includegraphics [scale=.7] {activity_lifecycle}
+  		\caption{Ciclo de vida de uma Activity \cite{docAndroid}}
 	\end{figure}
 
 	
 	\subsection{Services}
 	Service é o componente que roda em background no Android, podendo processar longas operações ou processar algum processo remoto. Um service não é responsável por fornecer interface para o usuário. Para entendermos melhor o funcionamento do Service, podemos exemplificar com o processo de tocar música enquanto se navega em outro aplicativo.
-	Um Service é implementado no código do aplicativo extendendo a classe Service do Android.
+	Um Service é implementado no código do aplicativo extendendo a classe Service do Android.\cite{docAndroid}
 	
 	\subsection{Content Providers}
 	Os Content Providers são parte importantíssima da arquitetura de um sistema android. É responsabilidade deles prover às aplicações o conteúdo que elas precisam para funcionar, ou seja, os dados.
@@ -391,12 +393,12 @@ Para o servidor, propomos utilizar algum servidor na nuvem de alta escalabilidad
 
 O servidor deve tratar e  armazenar as informações que virão do cliente, como:
 \begin{itemize}
-  \item SSID
-  \item BSSID
-  \item Recursos
-  \item Frequencia
-  \item Level
-  \item Horário
+  \item SSID - Nome da rede.
+  \item BSSID - MAC Address.
+  \item Capabilities - Características de segurança. 
+  \item Frequência - Frequência do canal que o dispositivo utilizou na comunicação.
+  \item Level - Intensidade do sinal em dBm.
+  \item Horário - Horário em que a rede foi capturada
   \item Identificador do Usuário do Dispositivo
   \end{itemize}
   
