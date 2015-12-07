@@ -379,7 +379,7 @@ Do lado do cliente desenvolvemos um sistema para rodar em dispositivos com o sis
   \caption{Processo de captura dos dados pelo aplicativo.}
 \end{figure}
 
-O aplicativo irá utilizar os serviços de Wifi do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
+O aplicativo irá utilizar os serviços de Wifi \todo{acronimo, na primeira aparicao} do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
 
 Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede WiFi com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
 
@@ -393,8 +393,8 @@ Para o servidor, propomos utilizar algum servidor na nuvem de alta escalabilidad
 
 O servidor deve tratar e  armazenar as informações que virão do cliente, como:
 \begin{itemize}
-  \item SSID - Nome da rede.
-  \item BSSID - MAC Address.
+  \item SSID - Nome da rede. \todo{Lista de acronimos.}
+  \item BSSID - MAC Address. \todo{Acronimo}
   \item Capabilities - Características de segurança. 
   \item Frequência - Frequência do canal que o dispositivo utilizou na comunicação.
   \item Level - Intensidade do sinal em dBm.
@@ -410,7 +410,7 @@ O sistema deverá tratar os dados do cliente com anonimidade, ou seja o aplicati
 \section{Aplicativo}
 Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as redes wireless disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
 
-Para tal, utilizamos a API do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor wifi do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
+Para tal, utilizamos a API\todo{acronimos. Considere este comentario para todos os outros} do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor wifi do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
 
 Foram utilizadas também classes que auxiliam nas funcionalidades do aplicativo, como por exemplo, o armazenamento em uma base de dados do dispositivo, o envio dos dados para a nuvem, a identificação do usuário pelo e-mail cadastrado no dispositivo.
 
@@ -451,7 +451,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
  
   Para armazenar na nuvem as redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
 
-  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7. 
+  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7.  \todo{ficou bem melhor}
   
   
   \begin{figure}[hbt]
@@ -461,7 +461,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
   
 
  \section{Google Docs}
-Com o objetivo de simular o serviço de armazenamento na nuvem, utilizamos o Google Docs, o qual nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 8 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
+Com o objetivo de simular \todo{voce nao simulou. voce implementou usando o google docs, que é altamente disponível e gratuito} o serviço de armazenamento na nuvem, utilizamos o Google Docs, o qual nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 8 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
 
 Para armazenar as redes coletadas através desse formulário, foi necessário estudar o código e a requisição do botão ``submit'' do ``form'', em busca de algo que nos desse a possibilidade de automatizar as ações de digitar os dados de cada rede wireless coletada e clicar no botão enviar, para que assim o dado fosse inserido na planilha de resposta.
 
@@ -487,7 +487,7 @@ O trecho de código a seguir, retirado da classe NetworkChangeReceiver, é dispa
 
  Na linha 11 é feita a requisição POST, utilizando a URL do endereço destinatário, e os dados da chamada os quais representam os campos do formulário que será respondido a quantidade de vezes necessárias para esvaziar o banco de dados local. 
  
-Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede wireless com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada. 
+Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede wireless com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada. \todo{comentario sobre como isso pode ser melhorado, nos trabalhos futuros. seis mil invocacoes seria bem ineficiente.}
  
  
 \begin{figure}[hbt]
@@ -500,6 +500,8 @@ Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou dur
 Para atender a proposta de limpeza de dados, providenciamos a anonimidade dos usuários contribuintes através da transformação do e-mail coletado pela classe UserEmailFetcher em um hash antes de mandá-lo ao serviço de armazenamento na nuvem.
 
 O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o hash do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte.
+
+\todo{se é gerado o hash, por que é que o email vai junto para a planilha? deveria ser o hash no lugar do email. o nome da rede também deveria ser anonimizado. Se quiser colocar os seus dados para ilustrar a ausencia e presenca de anonimizacao, tudo bem, mas não coloque os meus.}
 
 \begin{lstlisting}
 	public class UserEmailFetcher
@@ -537,12 +539,12 @@ Com os dados coletados e separados por colaborador compilados em uma planilha, c
 Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, consideramos que a rede "ALGARTELECOMVISITANTES"  seja a do local de trabalho, e a rede "Lar Doce Lar" seja a de sua residência, tmeos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014, coletando e armazenando as redes sem fio ao seu alcance.
 
 
- Provavelmente, o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta.
+ Provavelmente, o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta. \todo{Seja mais explicito. Algo como: observe que alem destas duas redes, o usuario patrick@gmail somente visualizou outras x redes. isto pode indicar que ... }
  
- Já na Análise 2, com redes coletadas no dia 30/07, consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residencia a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor.
+ Já na Análise 2, com redes coletadas no dia 30/07, consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residencia a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor. \todo{Adicione a informacao de que o trajeto é normalmente percorrido a pe pelo usuario indicado. Pode dizer que para este conjunto de usuarios especificos, os dados foram tratados de forma nao anonima para permitir maior insight sobre os resuttados.}
 
 
-Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha.
+Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha. \todo{E qual o resultado desta analise? Qual o horario de trabalho dos dois? Quando normalmente se deslocam? Quais dias da semana?}
 
 \small
 \setlength\tabcolsep{2pt}
@@ -752,7 +754,15 @@ nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:18:06 & lasaro@gmail.com \\
 
 Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso aplicativo bem como o que foi produzido através dele.
 
+\todo{Acho que aqui nao da para fugir de mais algumas tentativas de analise não. Regate os emails que trocamos sobre estas analises. Há algumas outras coisas lá que poderia tentar aplicar.}
+
 \chapter{Conclusão}
+
+\todo{Os principais resultados do seu trabalho são o protótipo e as análises de dados, não necessariamente as suas, mas outras que podem ser feitas. As suas são para demonstrar o potencial. Explore isso.}
+
+\todo{Melhore as análises e, consequentemente, as conclusões, e o trabalho fica defensável. Ficando bom, marcamos com Cláudio e Faina.}
+
+
 Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado e em poder contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros" como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
 
 Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Outro ponto a ser implementado futuramente, como mencionado, será a limpeza dos dados para garantir a anonimidade dos contribuintes dos dados.
