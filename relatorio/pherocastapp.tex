@@ -9,6 +9,7 @@ brazil]{facom-ufu-abntex2}
 \definecolor{jpurple}{rgb}{0.5,0,0.35}
 % Configurando layout para mostrar codigos Java
 \usepackage{listings}
+\usepackage{acronym}
 \usepackage{longtable}
 \lstset{
   language=Java,
@@ -47,6 +48,7 @@ brazil]{facom-ufu-abntex2}
 \hypersetup{pdfkeywords={palavra 1}{palavra 2}{palavra 4}{palavra 4}{palavra 5}} %TCC
 
 \begin{document}
+
 \frenchspacing 
 
 % ----------------------------------------------------------
@@ -79,7 +81,7 @@ brazil]{facom-ufu-abntex2}
     \vspace*{\fill}
    \end{center}
     
-   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012: %TCC:
+   Trabalho aprovado. \imprimirlocal, 10 de dezembro de 2015: %TCC:
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador}  
    \assinatura{\textbf{Professor}}% \\ Convidado 1} %TCC:
@@ -161,8 +163,6 @@ Nós inseridos em redes móveis se movimentam e se interagem, ações as quais t
 \cleardoublepage
 % ---
 
-
-
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
@@ -194,7 +194,13 @@ Nós inseridos em redes móveis se movimentam e se interagem, ações as quais t
 % ---
 
 
-
+\chapter*{Lista de abreviaturas}
+\begin{acronym}
+\acro{WiFi}{Wireless Fidelity}
+\acro{SSID}{Service set ID}
+\acro{BSSID}{Basic Service set Identifier}
+\acro{API}{Application Programming Interface}
+\end{acronym}
 
 
 % ----------------------------------------------------------
@@ -379,7 +385,7 @@ Do lado do cliente desenvolvemos um sistema para rodar em dispositivos com o sis
   \caption{Processo de captura dos dados pelo aplicativo.}
 \end{figure}
 
-O aplicativo irá utilizar os serviços de Wifi \todo{acronimo, na primeira aparicao} do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
+O aplicativo irá utilizar os serviços de Wifi 	 do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do 	dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
 
 Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede WiFi com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
 
@@ -393,8 +399,8 @@ Para o servidor, propomos utilizar algum servidor na nuvem de alta escalabilidad
 
 O servidor deve tratar e  armazenar as informações que virão do cliente, como:
 \begin{itemize}
-  \item SSID - Nome da rede. \todo{Lista de acronimos.}
-  \item BSSID - MAC Address. \todo{Acronimo}
+  \item \ac{SSID} - Nome da rede.
+  \item  \ac{BSSID} - MAC Address. \todo{Acronimo}
   \item Capabilities - Características de segurança. 
   \item Frequência - Frequência do canal que o dispositivo utilizou na comunicação.
   \item Level - Intensidade do sinal em dBm.
@@ -451,8 +457,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
  
   Para armazenar na nuvem as redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
 
-  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7.  \todo{ficou bem melhor}
-  
+  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7.    
   
   \begin{figure}[hbt]
   \includegraphics [scale=.3] {diagrama}
@@ -461,7 +466,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
   
 
  \section{Google Docs}
-Com o objetivo de simular \todo{voce nao simulou. voce implementou usando o google docs, que é altamente disponível e gratuito} o serviço de armazenamento na nuvem, utilizamos o Google Docs, o qual nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 8 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
+Com o objetivo de implementar o serviço de armazenamento na nuvem, o serviço de armazenamento na nuvem, utilizamos o Google Docs, que é altamente disponível e gratuito nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 8 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
 
 Para armazenar as redes coletadas através desse formulário, foi necessário estudar o código e a requisição do botão ``submit'' do ``form'', em busca de algo que nos desse a possibilidade de automatizar as ações de digitar os dados de cada rede wireless coletada e clicar no botão enviar, para que assim o dado fosse inserido na planilha de resposta.
 
@@ -487,7 +492,9 @@ O trecho de código a seguir, retirado da classe NetworkChangeReceiver, é dispa
 
  Na linha 11 é feita a requisição POST, utilizando a URL do endereço destinatário, e os dados da chamada os quais representam os campos do formulário que será respondido a quantidade de vezes necessárias para esvaziar o banco de dados local. 
  
-Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede wireless com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada. \todo{comentario sobre como isso pode ser melhorado, nos trabalhos futuros. seis mil invocacoes seria bem ineficiente.}
+Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede wireless com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada.
+
+Consideramos para trabalhos futuros a melhoria das requisições ao serviço de armazenamento, pois milhares de requisições seguidas não é o melhor procedimento a se realizar, e sim uma requisição com um lote de redes sem fio, diminuindo assim a quantidade de transações com o sistema de armazenamento na nuvem.
  
  
 \begin{figure}[hbt]
