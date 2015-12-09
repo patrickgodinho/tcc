@@ -290,7 +290,7 @@ Para ter sucesso na coleta de dados o aplicativo deve ser utilizado pelo máximo
 	
 	Dado um Phero Map definido, temos todas as variáveis que o algoritmo de previsão de uma futura localização do nó, descrita no Phero Cast necessita. Tais elas são: localização, direção, quantidade de vezes que passou pela localização. 
 	
- 	O produto final desse trabalho, tem como objetivo produzir dados reais de localização, tratando os feromônios como registros de rede wifi,registrados pelo dispositivo móvel em um determinado intervalo de tempo, e armazenando em um local para ser reproduzidas em mapas e diagramas, como aborda o Phero Cast.
+ 	O produto final desse trabalho, tem como objetivo produzir dados reais de localização, tratando os feromônios como registros de rede \ac{WiFi}, registrados pelo dispositivo móvel em um determinado intervalo de tempo, e armazenando em um local para ser reproduzidas em mapas e diagramas, como aborda o Phero Cast.
 
 \section{Redes sem fio}
 A troca de mensagens digitais utilizando redes sem fios é uma idéia bem antiga, pois em 1901, foi demonstrado como funcionava um telégrafo sem fio, por Guglielmo Marconi, que transmitia informações de um navio para o litoral por meio de código morse. A grande diferença para a tecnologia atual é o desempenho, mas a teoria da funcionalidade apresentada com os aparelhos que temos hoje em dia é a mesma. Nesse paradigma, o mestre gerencia toda a comunicação com os escravos, parâmetros como endereço, tempo 
@@ -385,11 +385,11 @@ Do lado do cliente desenvolvemos um sistema para rodar em dispositivos com o sis
   \caption{Processo de captura dos dados pelo aplicativo.}
 \end{figure}
 
-O aplicativo irá utilizar os serviços de Wifi 	 do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do 	dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
+O aplicativo irá utilizar os serviços de \ac{WiFi} do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do 	dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
 
-Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede WiFi com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
+Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede \ac{WiFi} com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
 
-Caso o serviço de WiFi esteja desligado, o aplicativo deverá ser responsável por após ligar o Wifi e coletar os dados, desligar o mesmo, voltando assim para o estado inicial antes da coleta. Fazendo com que assim, não haja alteração no funcionamento do aparelho.
+Caso o serviço de \ac{WiFi} esteja desligado, o aplicativo deverá ser responsável por após ligar o \ac{WiFi} e coletar os dados, desligar o mesmo, voltando assim para o estado inicial antes da coleta. Fazendo com que assim, não haja alteração no funcionamento do aparelho.
 
 
 
@@ -400,7 +400,7 @@ Para o servidor, propomos utilizar algum servidor na nuvem de alta escalabilidad
 O servidor deve tratar e  armazenar as informações que virão do cliente, como:
 \begin{itemize}
   \item \ac{SSID} - Nome da rede.
-  \item  \ac{BSSID} - MAC Address. \todo{Acronimo}
+  \item  \ac{BSSID} - MAC Address. 
   \item Capabilities - Características de segurança. 
   \item Frequência - Frequência do canal que o dispositivo utilizou na comunicação.
   \item Level - Intensidade do sinal em dBm.
@@ -416,13 +416,13 @@ O sistema deverá tratar os dados do cliente com anonimidade, ou seja o aplicati
 \section{Aplicativo}
 Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as redes wireless disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
 
-Para tal, utilizamos a API\todo{acronimos. Considere este comentario para todos os outros} do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor wifi do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
+Para tal, utilizamos a \ac{API} do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor \ac{WiFi} do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
 
 Foram utilizadas também classes que auxiliam nas funcionalidades do aplicativo, como por exemplo, o armazenamento em uma base de dados do dispositivo, o envio dos dados para a nuvem, a identificação do usuário pelo e-mail cadastrado no dispositivo.
 
 Abaixo detalharemos cada classe do código, com o objetivo de entendermos a estrutura do desenvolvimento do aplicativo.
 
-Começaremos pela MainActivity, classe estendida do componente Activity do Android, o qual foi detalhado no nosso referencial teórico, que é a nossa principal classe, ou seja código responsável pela inicialização e processamento do aplicativo, através do método onCreate(). Esse método cria uma tarefa agendada que roda em intervalos de um minuto. Tal tarefa, é responsável por verificar a situação do Wifi do aparelho, e, caso este esteja desligado, é ligado. Toda essa verificação do Wifi, é feita no método getWifiState(). O trecho de código a seguir representa a implementação da tarefa.
+Começaremos pela MainActivity, classe estendida do componente Activity do Android, o qual foi detalhado no nosso referencial teórico, que é a nossa principal classe, ou seja código responsável pela inicialização e processamento do aplicativo, através do método onCreate(). Esse método cria uma tarefa agendada que roda em intervalos de um minuto. Tal tarefa, é responsável por verificar a situação do \ac{WiFi} do aparelho, e, caso este esteja desligado, é ligado. Toda essa verificação do \ac{WiFi}, é feita no método getWifiState(). O trecho de código a seguir representa a implementação da tarefa.
 \begin{lstlisting}
 	protected void onCreate(Bundle paramBundle) {
 		super.onCreate(paramBundle);
@@ -449,11 +449,11 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
 
   Após tratar a situação do sinal wireless do aparelho, a tarefa registra através de um Intent, a classe WifiScanReceiver estendida do componente BroadCastReceiver, responsável por receber o resultado da varredura das redes wireless ao alcance do aparelho realizada.
  
- A responsabilidade da coleta das redes sem fio é do objeto instanciado da classe WifiManager da API do Android, o qual é executado através do método startScan(), após a tarefa registrar o receptor das redes encontradas.
+ A responsabilidade da coleta das redes sem fio é do objeto instanciado da classe WifiManager da \ac{API} do Android, o qual é executado através do método startScan(), após a tarefa registrar o receptor das redes encontradas.
  
-  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são BSSID, SSID, Capabilities, Frequency, level e o momento em que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, a qual, quando instanciada através pelo padrão de projeto Singleton, é criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
+  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são \ac{BSSID}, \ac{SSID}, Capabilities, Frequency, level e o momento em que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, a qual, quando instanciada através pelo padrão de projeto Singleton, é criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
  
- Importante lembrar que após o serviço de receber e armazenar as redes capturadas, a situação anterior ao processamento do sinal wireless do aparelho é mantida, ou seja, caso o aparelho esteja com a funcionalidade wifi desligada, após o processamento (que liga a mesma), a tarefa principal é responsável por desligá-la. 
+ Importante lembrar que após o serviço de receber e armazenar as redes capturadas, a situação anterior ao processamento do sinal wireless do aparelho é mantida, ou seja, caso o aparelho esteja com a funcionalidade \ac{WiFi} desligada, após o processamento (que liga a mesma), a tarefa principal é responsável por desligá-la. 
  
   Para armazenar na nuvem as redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
 
@@ -508,7 +508,6 @@ Para atender a proposta de limpeza de dados, providenciamos a anonimidade dos us
 
 O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o hash do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte.
 
-\todo{se é gerado o hash, por que é que o email vai junto para a planilha? deveria ser o hash no lugar do email. o nome da rede também deveria ser anonimizado. Se quiser colocar os seus dados para ilustrar a ausencia e presenca de anonimizacao, tudo bem, mas não coloque os meus.}
 
 \begin{lstlisting}
 	public class UserEmailFetcher
@@ -543,15 +542,17 @@ Com os dados coletados e separados por colaborador compilados em uma planilha, c
  Tais análises, serão exibidas na próxima seção.
 
 \section{Análise}
-Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, consideramos que a rede "ALGARTELECOMVISITANTES"  seja a do local de trabalho, e a rede "Lar Doce Lar" seja a de sua residência, tmeos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014, coletando e armazenando as redes sem fio ao seu alcance.
+Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, a qual não tratamos de forma anônima para permitir maior insight sobre os resultados, consideramos que a rede "ALGARTELECOMVISITANTES"  seja a do local de trabalho, e a rede "Lar Doce Lar" seja a de sua residência, temos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014, coletando e armazenando as redes sem fio ao seu alcance.
 
 
- Provavelmente, o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta. \todo{Seja mais explicito. Algo como: observe que alem destas duas redes, o usuario patrick@gmail somente visualizou outras x redes. isto pode indicar que ... }
+Observamos que alem das redes citadas acima, o usuário identificado por godinhopatrick@gmail.com visualizou outras 12 redes, isso pode indicar que durante um trajeto que durou aproximadamente 24 minutos, poucas redes foram alcançadas. Tal informação nos leva a concluir que provavelmente o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta. 
  
- Já na Análise 2, com redes coletadas no dia 30/07, consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residencia a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor. \todo{Adicione a informacao de que o trajeto é normalmente percorrido a pe pelo usuario indicado. Pode dizer que para este conjunto de usuarios especificos, os dados foram tratados de forma nao anonima para permitir maior insight sobre os resuttados.}
+ Já na Análise 2, a qual foi tratada com anonimidade, possui redes coletadas no dia 30/07. Consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residência a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor. Segundo o responsável pelo dispositivo que coletou essas redes, o trajeto é normalmente percorrido a pé.
 
 
-Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha. \todo{E qual o resultado desta analise? Qual o horario de trabalho dos dois? Quando normalmente se deslocam? Quais dias da semana?}
+Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha. No caso da primeira análise apresentada, onde o ID se dá por godinhopatrick@gmail.com, as redes são frequentes e repetitivas durante o período das 09:00 até por volta de 18:00, onde começa uma variação na coleta das redes, o que nos leva a entender que o usuário está se locomovendo.
+
+
 
 \small
 \setlength\tabcolsep{2pt}
@@ -559,13 +560,13 @@ Para considerarmos que um local é o trabalho do usuário e outro é a residênc
 \begin{longtable}{|c|c|c|c|}
 
 \hline
-\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\textbf{SSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {\tablename\ \thetable\ -- \textit{Continuação da página anterior}} \\
 \hline
-\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\textbf{SSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
 \endhead
 \hline \multicolumn{4}{r}{\textit{Continua na próxima página}} \\
@@ -607,155 +608,154 @@ Lar Doce Lar              & c0:a0:bb:0e:fa:1e & 30/07/2014 06:28:28 & godinhopat
 \begin{longtable}{|c|c|c|c|c|c|}
 
 \hline
-\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\textbf{SSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {\tablename\ \thetable\ -- \textit{Continuação da página anterior}} \\
 \hline
-\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\textbf{SSID} &  \textbf{Capturada em}  & \textbf{ID} \\
 \hline
 \endhead
 \hline \multicolumn{4}{r}{\textit{Continua na próxima página}} \\
 \endfoot
 \hline
-\caption{Análise 1}
+\caption{Análise 2}
 \centering
-\label{Análise 1}
+\label{Análise 2}
 \endlastfoot
-UFU-Portal & d8:c7:c8:d5:79:41 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-UFU-Portal & d8:c7:c8:d5:79:41 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-DaComp & f8:1a:67:13:79:90 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-dlink & 00:21:91:6f:18:00 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-UFU-Portal & d8:c7:c8:d5:78:a1 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-UFU-Portal & d8:c7:c8:d5:78:a1 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-OpenWrt & 90:f6:52:3e:ca:58 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-OpenWrt & 90:f6:52:3e:ca:58 & 04/08/2014 05:36:47 & lasaro@gmail.com \\
-BENARENGE & 00:1d:1a:0a:91:ea & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-MM GAMA & 20:aa:4b:a9:b7:57 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-b7b380 & 54:be:f7:87:b0:a7 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-ultrabl\_1149\_20m & 20:aa:4b:4f:a9:ca & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-b13c34 & 54:be:f7:71:bc:bd & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-22ks & 90:f6:52:68:7c:c2 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-VERTICAL\_FILMES & 20:aa:4b:d0:62:c3 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-WJS & 2a:a4:3c:7d:48:52 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-CLIENTE-DGUSTO & 90:f6:52:a6:36:32 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-Serafim & d8:5d:4c:d6:40:2c & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-b0ed44 & 54:be:f7:6c:51:7b & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-enio & c8:be:19:01:b8:a8 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-NetVirtua\_582 & 90:0d:cb:f4:97:00 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-c7917c & 70:54:d2:c7:03:04 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-abacaxi & 70:54:d2:c3:4c:43 & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-Marcio D-Link & 28:10:7b:3e:23:fb & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-c7184a & 70:54:d2:c6:16:bf & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-CAETES02 & 98:fc:11:ce:e6:ae & 04/08/2014 05:45:07 & lasaro@gmail.com \\
-Viveiro Rosalia & 9c:d6:43:7b:51:d3 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-EDC & 20:aa:4b:d8:84:f3 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-Bom jesus & 1c:7e:e5:99:68:10 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-fransergio de camargo & 84:c9:b2:cc:ce:3d & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-c6eb7a & 70:54:d2:c4:25:27 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-versii\_ap2 & 94:0c:6d:aa:1e:e6 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-HarryPotter & 64:66:b3:da:c7:95 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-Advocacia & 00:1d:0f:d5:e2:de & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-Nasa Hi-Fi & b0:48:7a:f2:2a:5a & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-HP-Print-96-LaserJet 1102 & 1c:3e:84:f5:ef:96 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-vargas & 20:aa:4b:d0:63:32 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-Francine & c8:d7:19:60:95:90 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-ALINEMAMEDE-PC\_Network & 54:e6:fc:a4:d8:48 & 04/08/2014 05:49:33 & lasaro@gmail.com \\
-Consultorio & 78:54:2e:ee:28:80 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-DIRECT-kJSCX-3400 Series & 02:15:99:d0:07:09 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-ATENDI & b8:62:1f:52:8f:36 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-Exclusiviagem & 20:aa:4b:55:5b:bc & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-c6f1fe & 70:54:d2:c1:63:1d & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-Bambola Pizzaria & 64:66:b3:82:1c:c6 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-navegantes & 08:10:74:32:8f:ba & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-c6fcd2 & 70:54:d2:c3:44:ab & 04/08/2014 05:54:11 & lasaro@gmail.com \\
-Exclusiviagem & 20:aa:4b:55:5b:bc & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-c6f1fe & 70:54:d2:c1:63:1d & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-navegantes & 08:10:74:32:8f:ba & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-c6fcd2 & 70:54:d2:c3:44:ab & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-TELEMACO2013 & 20:aa:4b:55:5c:67 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-ATENDI & b8:62:1f:52:8f:36 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-SalaTv & 78:54:2e:ee:28:8c & 04/08/2014 05:58:02 & lasaro@gmail.com \\
-Consultorio & 78:54:2e:ee:28:80 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-Abgail & 20:aa:4b:b4:86:17 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-CRECI\_UDI & f4:ec:38:b5:66:36 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-guarita unifi & 24:a4:3c:7a:ce:2b & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-residencia unifi & 2a:a4:3c:0d:23:1e & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-b71b76 & 54:be:f7:6f:f8:bb & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-rachel\_sala & c0:4a:00:6b:d6:ec & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-DIRECT-CHSCX-3400 Series & 32:cd:a7:5d:1d:79 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-RAZZAO & a0:f3:c1:a3:c7:ea & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-wifi-castro & 00:1d:7e:f8:6d:09 & 04/08/2014 06:04:15 & lasaro@gmail.com \\
-b113f6 & 54:be:f7:71:78:d1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-estancia santa rosalia & 20:aa:4b:55:60:cf & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-NADSON & c8:3a:35:11:2f:78 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Advocacia & 00:1d:0f:d5:e2:de & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Danger\_zone & 14:d6:4d:83:01:a4 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-ULTRABL\_20MB\_1315 & c8:d7:19:eb:ec:44 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-cris e rique & 10:fe:ed:32:ef:7a & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-advogados\_ & 70:54:d2:c4:06:67 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-GVT-F26F & 28:10:7b:96:f2:70 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-HP-Print-96-LaserJet 1102 & 1c:3e:84:f5:ef:96 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-inove & bc:f6:85:de:d0:a1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
- & 00:24:82:22:f6:ba & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-familhareis & 20:aa:4b:de:5d:cb & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-WIFI-UNIUBE 2 & 00:24:82:62:f6:b8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-WIFI-UNIUBE & 00:24:82:22:f6:b8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-belkin54g & 00:1c:df:98:3d:e4 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Rone & a0:f3:c1:46:da:7f & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Ultra Telecom & 00:01:e3:e2:79:f6 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Play music bar & f8:1a:67:c4:fb:70 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Loranne & 9c:d6:43:7a:dc:13 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Kamel\_Home & 00:4f:67:02:d9:e3 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-MEROLA & 00:1c:10:57:94:90 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-PaisagemBrasil & 00:25:86:c7:d7:02 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Rede & 78:52:1a:7c:d9:b9 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-MMCV38 & 90:f6:52:ef:4c:a8 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Amanda & 20:aa:4b:55:5c:61 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-MURILO & c8:be:19:8a:86:96 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-alexandrefreitas & 78:44:76:07:5b:c1 & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-Ana\_Carolina & 10:fe:ed:33:17:7a & 04/08/2014 06:09:44 & lasaro@gmail.com \\
-c6f1ec & 70:54:d2:c1:a0:31 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-MARIO 3.0 & 70:54:d2:b4:a5:d2 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-Yuji & 74:ea:3a:fc:3b:58 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-paulocesar & 70:54:d2:c1:c1:dd & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-Proservice piso2 & 34:08:04:c0:5f:1c & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c78666 & 70:54:d2:c3:bd:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-vierafa & a0:f3:c1:43:2e:88 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-Fred & 10:bf:48:8f:b3:5c & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-b76766 & 54:be:f7:6f:c1:87 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-Cavalo de Troia & 70:54:d2:c1:95:fd & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c7832a & 70:54:d2:c1:60:81 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-VELOSO & 54:be:f7:6d:0a:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-Netvirtua\_1366 & e0:ce:c3:d6:ff:ce & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c6f156 & 70:54:d2:c3:5f:1f & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-fmm & 70:54:d2:c3:60:1b & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c6e38e & 70:54:d2:c2:fa:cf & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-LULUZINHAS & 70:54:d2:c1:cd:99 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-b7692e & 54:be:f7:6f:c5:53 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c74646 & 70:54:d2:c3:bc:b7 & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-c6ea7e & 70:54:d2:c2:f2:af & 04/08/2014 06:12:56 & lasaro@gmail.com \\
-VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-b7692e & 54:be:f7:6f:c5:53 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-c74646 & 70:54:d2:c3:bc:b7 & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-c6ea7e & 70:54:d2:c2:f2:af & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-c6e118 & 70:54:d2:c3:57:3f & 04/08/2014 06:17:05 & lasaro@gmail.com \\
-c70416 & 70:54:d2:ad:d2:3b & 04/08/2014 06:17:06 & lasaro@gmail.com \\
-VELOSO & 00:4f:81:03:ce:b0 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
-spoof net & ec:1a:59:cf:ab:f8 & 04/08/2014 06:18:06 & lasaro@gmail.com \\
-nao e a sua & 54:be:f7:87:b7:ef & 04/08/2014 06:18:06 & lasaro@gmail.com \\
-
+8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+2a7b17a6dd1619a6118f9a8970a8d72b & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+cf6f83af9786671aff636f989852dfe6 & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+f30b73d85c69929a5ad6b6d8674aec07 & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+f30b73d85c69929a5ad6b6d8674aec07 & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
+b35473767951e29af6bcbdb3aeab94b4 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+481118ba53b66c5a98d671197054f356 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+e22fef1f99beaf5788a7b19ac4bffbd1 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+dcc787b7af1cb9930719dd1f655ebe17 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+3f5b228294da3490f8b50c459f3f6c87 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+7f8fa5b29b6dcd1351c92060e8ff9be6 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+0598065943969ba7156012ea1f856c8a & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+86ebda563945011ee51ed82aa34a16be & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+b0d9e0fb84a27d0645ff7c71cd9f0f8f & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+f54ef483607ec18bd06f55beab2a9a03 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+365c14d9a42d8d47e575ed5dc688a06e & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+3e443977126ec80b11db0cae5a9bdccc & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+97f012aa3ead49fc98583d282ca71d49 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+282301c0f75d5c985999e60ab73f7e23 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+4b96d5c1ff312eea069ddc760794963d & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+9f3b7f3d66fb537342e2993c2574b02b & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+6b2ef1b90924ba3c786ea2f6a98a046e & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+59422c6d30247893a2c77777d90b6c30 & 04/08/2014 05:45:07 & aa30415a863fa6539cf2e0d741697987 \\
+a50bd3499ef74cead938f7338df2709b & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+591d9b34d1f48055596eb6b7455af526 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+fa3835a18d4dbb8093bedeaf6ff0bd21 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+6317a2a78153fe49b9e7b42ab1870759 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+82cfc75e5d5a2ca07073babc666e7537 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+0c845f83efa0c9869933c5ca8f5b07bb & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+c8bbe67803085b9e51b69b6d6cff821c & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+5bc1b8af009e072d5ef1d18d3fe0b961 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+8b0131121330dc9990e704c62e6cf5c2 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+ac4b5d776485a84bd0a58dc2af669667 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+d49fab26ac2dfc1970ae462229264f35 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+695d5cf06094d7e2e93c4d347fadaf36 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+e98c5ddd42ada2c6fec5aff29e4631f2 & 04/08/2014 05:49:33 & aa30415a863fa6539cf2e0d741697987 \\
+54dcc7d6ea31638a26b17078fc8ea2d8 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+ea1dd8b9142f0bc51852cf0676a643dd & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+1f44c499f4e7259b28a9a6504c0ba5c0 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+f1446884609e12fc723f383b6e88ad7b & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+017add08f76ecc11b0c719c3d39a3d0e & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+3c69bdf979acbffd0749803659fc8cef & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+eab9aadba9775e4d16331f4710e6dbd8 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+a214a35493406ea8ad965c3822fdaec4 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+1c91ef773c27b7777f9bcee616eb7622 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+e05747eda27888a8db3fca1f1e981757 & 04/08/2014 05:54:11 & aa30415a863fa6539cf2e0d741697987 \\
+f1446884609e12fc723f383b6e88ad7b & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+017add08f76ecc11b0c719c3d39a3d0e & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+1c91ef773c27b7777f9bcee616eb7622 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+e05747eda27888a8db3fca1f1e981757 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+9854f58dee424e44ae3f222fc8faf310 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+a214a35493406ea8ad965c3822fdaec4 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+3c69bdf979acbffd0749803659fc8cef & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+1f44c499f4e7259b28a9a6504c0ba5c0 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+a214a35493406ea8ad965c3822fdaec4 & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+304d60913d528570624670b9523f9f1c & 04/08/2014 05:58:02 & aa30415a863fa6539cf2e0d741697987 \\
+54dcc7d6ea31638a26b17078fc8ea2d8 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+b8ca0faeb96bb246a93f1ec705904a98 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+3c69bdf979acbffd0749803659fc8cef & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+c91bac5fdd1df5ef0480a1cb86052109 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+37c621181b9c749581bced45f0546441 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+09fdc52c75480000a14307d2ae99c3ba & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+fb6d70a2d9f2e57507dd5f0126d8f69f & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+5a422641ca0a57a1397ca32c3a2ed5fe & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+bd42313705de24c3cc797db9feb9db68 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+a214a35493406ea8ad965c3822fdaec4 & 04/08/2014 06:04:15 & aa30415a863fa6539cf2e0d741697987 \\
+eba296a8391167ce48a94dea70eb5b0b & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+2816b5665ca0d9db7a6a0816b88324f7 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+b6a793033f0fd4483d30ef37e3d5b058 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+5bc1b8af009e072d5ef1d18d3fe0b961 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+c709be5445f65fea03e6f82a924a5463 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f3de1da2923631f028a6b572bb61f86d & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+32c7b4d0b73d86e9fa9b5e0ea7886725 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f30ebc9e686cde3a3d476a53c3405bf4 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+60f8d2b10615467782bffa56886e7e93 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+ac4b5d776485a84bd0a58dc2af669667 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+a01df980e93c383e70a030e9df196ed4 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+c8f65e3e220278c7000f9330cb9f02b9 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+a09b70da3de1d3c861c392d804d0d63d & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+e61851dde94d0a25c011b19d4804a986 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+ & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+b4326946e1986fe9b5e979b82744d3bf & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f1aab358cebf94d40cac149f9c894f2f & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+cb4b7003fae5898afe4faa0e844ccaca & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+7b90375d81759fc3b6e13df1569bad30 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+3e6a09208e022fcddf43ac30460916f0 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+890d4940c42e231dd55d98d04404b588 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+8a3912022f071a3b2dd71146a460ba46 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+ce7eede2166e6b6193aab0c1b4e20c40 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f5e5714978904472691feaed59b1eef9 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+0f125204dd3e8b55dcc0acf3f11b665a & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+9d910c8bf395fce35216f0f4fa85432e & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f95d2d1f4f6dd82d81a7dbc61131bf01 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+4a24f63118ba52985ee3a81bebf726af & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+f6b60e5ca673f596a2f2f320426aaac4 & 04/08/2014 06:09:44 & aa30415a863fa6539cf2e0d741697987 \\
+c03dfe946e14ad8a533c5b31fceee8f4 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+19f07cd585213b7ee536d220dd5e05d8 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+17e0e126a99a3d00707cb0325aeb19e5 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+4768a8e7987fa0b08f8f1e89771d537c & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+d11a0cdb886402501984e622b9f9ea91 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+3da9b84ddf62db911fdad28e92dddb40 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+bdd53871142b53476f42934dd959c3c2 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+2422427f25a06de54ee468174e97ebef & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+f2cb32166f77f33e80311be40c97466e & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+382aab5ef70b2b3c791bc42698cd6bfc & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+266d530043c3258b02f3e35a70191d35 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+9097ab90f86c8c35103a826720359f4a & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+4768a8e7987fa0b08f8f1e89771d537c & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+e4963bf7fbea0240c7c41753fd752b26 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+ecf12bac029e5a5d2054320574022f5f & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+640f527ef3c0c140886298349f24573b & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+45b5b81c8e2420a7aac2ff1c475711f6 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+d97cbb5fdec044e0b246e41405efc759 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+c80a3eaff0aa4d1d86e2f3afbc45a355 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+60a46f8d9050564cb1f40de9daa92c8a & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+a9be98e01836b20aba0e32aeb61285f5 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+4b6152705aefea15a3423257e7f98b2b & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+c3556d9438b0c421cea89bc436f403c2 & 04/08/2014 06:12:56 & aa30415a863fa6539cf2e0d741697987 \\
+4768a8e7987fa0b08f8f1e89771d537c & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+c80a3eaff0aa4d1d86e2f3afbc45a355 & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+640f527ef3c0c140886298349f24573b & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+a9be98e01836b20aba0e32aeb61285f5 & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+4b6152705aefea15a3423257e7f98b2b & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+c3556d9438b0c421cea89bc436f403c2 & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+91d6092214818341b2f55287b1bc90bc & 04/08/2014 06:17:05 & aa30415a863fa6539cf2e0d741697987 \\
+623cedfd93c052ee5787bbb9d11dd742 & 04/08/2014 06:17:06 & aa30415a863fa6539cf2e0d741697987 \\
+4768a8e7987fa0b08f8f1e89771d537c & 04/08/2014 06:18:06 & aa30415a863fa6539cf2e0d741697987 \\
+c80a3eaff0aa4d1d86e2f3afbc45a355 & 04/08/2014 06:18:06 & aa30415a863fa6539cf2e0d741697987 \\
+640f527ef3c0c140886298349f24573b & 04/08/2014 06:18:06 & aa30415a863fa6539cf2e0d741697987 \\
 \end{longtable}
 \end{center}
 
@@ -765,12 +765,12 @@ Mais análises são possíveis de ser construídas, porém pela limitação do s
 
 \chapter{Conclusão}
 
-\todo{Os principais resultados do seu trabalho são o protótipo e as análises de dados, não necessariamente as suas, mas outras que podem ser feitas. As suas são para demonstrar o potencial. Explore isso.}
 
 \todo{Melhore as análises e, consequentemente, as conclusões, e o trabalho fica defensável. Ficando bom, marcamos com Cláudio e Faina.}
 
 
-Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado e em poder contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros" como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
+Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado de ter o protótipo implementado, e mostrar o grande potencial a ser explorado no que se refere às análises dos dados coletados. Também podemos contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros" como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
+
 
 Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Outro ponto a ser implementado futuramente, como mencionado, será a limpeza dos dados para garantir a anonimidade dos contribuintes dos dados.
 
