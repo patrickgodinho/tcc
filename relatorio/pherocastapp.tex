@@ -256,6 +256,8 @@ Nessa abordagem, o algoritmo de previsão é desenvolvido para ser processado no
 
 Assim, com o grafo representando o histórico dos ``traces'' de um determinado nó, é possível determinar uma probabilidade de onde ele estará em determinado momento a partir de um certo lugar.
 
+patrick
+
 \paragraph{Resultados}
 Segundo \cite{fynn} foi feita uma avaliação do algoritmo PheroCast usando os caminhos dos ônibus de Seattle Metro Transit, e através dos resultados apresentados para 186 viagens ao longo da rota 007, a qual registrou 310206 ``traces'', as suposições de que os nós seguem padrões claros foi validada. Foi descoberto que a abordagem obteve bons resultados em relação à predição das futuras posições dos ônibus. A avaliação obteve 96,25\% de resultados positivos. 
 
@@ -553,7 +555,6 @@ Observamos que alem das redes citadas acima, o usuário identificado por godinho
 Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha. No caso da primeira análise apresentada, onde o ID se dá por godinhopatrick@gmail.com, as redes são frequentes e repetitivas durante o período das 09:00 até por volta de 18:00, onde começa uma variação na coleta das redes, o que nos leva a entender que o usuário está se locomovendo.
 
 
-
 \small
 \setlength\tabcolsep{2pt}
 \begin{center}
@@ -759,14 +760,154 @@ c80a3eaff0aa4d1d86e2f3afbc45a355 & 04/08/2014 06:18:06 & aa30415a863fa6539cf2e0d
 \end{longtable}
 \end{center}
 
-Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso aplicativo bem como o que foi produzido através dele.
+Outro cenário interessante de se analisar é a quantidade de vezes que uma rede foi coletada em um certo intervalo de tempo. Por exemplo na Figura 9, que ilustra a data de 28/05/2014 em um intervalo de tempo entre 00:00 e 18:20,  onde é exibido o nome da rede bem como a quantidade que ela foi coletada pelo aplicativo. 
 
-\todo{Acho que aqui nao da para fugir de mais algumas tentativas de analise não. Regate os emails que trocamos sobre estas analises. Há algumas outras coisas lá que poderia tentar aplicar.}
+\begin{figure}[hbt]
+  \includegraphics[scale=0.4]{analise3}
+  \caption{Análise 3 - Redes coletadas no dia 28/05/2014 - 00:00 as 18:20}
+\end{figure}
+
+
+Para essa análise, foram filtradas as redes que foram coletadas mais que 30 vezes, para eliminarmos as que para esse cenário não nos interessa. Concluímos com esse gráfico que mesmo o usuário permanecendo a mesma quantidade de tempo no alcance das redes Lar Doce Lar, local onde reside,  e as redes ALGARTELECOM, local onde trabalha, as redes sem fio do trabalho foram mais frequentes na coleta, isso se deu pela quantidade de pontos fornecedores, como replicadores e roteadores, (com MAC Address diferentes) de uma mesma rede, onde para cada uma alcançada é criado um novo registro na base de dados do dispositivo. 
+
+Identificamos também a necessidade de descobrir se o padrão de coleta das redes sem fio se repetiam todos os dias, ou seja, inclusive sábados e domingos. Concluímos que não, pois teve alteração das redes sem fio nos fins de semana,  como por exemplo na Tabela 3 abaixo, onde ilustra as redes coletadas pelo mesmo usuário da Figura 9, em um sábado.
+
+\small
+\setlength\tabcolsep{2pt}
+\begin{center}
+\begin{longtable}{|c|c|c|c|c|c|}
+
+\hline
+\textbf{SSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{\tablename\ \thetable\ -- \textit{Continuação da página anterior}} \\
+\hline
+\textbf{SSID} &  \textbf{Capturada em}  & \textbf{ID} \\
+\hline
+\endhead
+\hline \multicolumn{4}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\hline
+\caption{Análise 4}
+\centering
+\label{Análise 4}
+\endlastfoot
+Rede Hoteis Prive                 & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Boulevard\_recepcao               & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Boulevard-B                       & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Rede Prive Diversao               & 09/08/2014 07:44:19 & godinhopatrick@gmail.com \\
+Rede Prive Diversao               & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Boulevard-A                       & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Recepcao\_Lobby-TDM               & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Rede Hoteis Prive                 & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+CALDAS\_DIGITAL\_III              & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Prive\_TDM-B                      & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Prive\_TDM-A                      & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+CHOPERIA\_BOULEVARD               & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Prive\_Area\_de\_Lazer            & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Prive\_TDM-C                      & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Boulevard-B                       & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
+Rede Prive Diversao               & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+ROYAL-B5                          & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+ROYAL-B4                          & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Boulevard-A                       & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Recepcao\_Lobby-TDM               & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Prive\_Area\_de\_Lazer            & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+CALDAS\_DIGITAL\_III              & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Prive\_TDM-B                      & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Rede Hoteis Prive                 & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+Prive\_TDM-C                      & 09/08/2014 07:47:18 & godinhopatrick@gmail.com \\
+lanteca\_varandas\_M5\_II         & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Boulevard-C                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Boulevard-A                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+ROYAL-B3                          & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+LUCIMAR-MARCOS                    & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Afpichelli                        & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Boulevard-B                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Boulevard-B                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+WIFI\_ROYAL                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+DEXLINK-RTWL15F1                  & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Boulevard-C                       & 09/08/2014 07:47:19 & godinhopatrick@gmail.com \\
+Rede Prive Diversao               & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+ROYAL-B4                          & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Boulevard-A                       & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Recepcao\_Lobby-TDM               & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+LUCIMAR-MARCOS                    & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Boulevard-B                       & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+ROYAL-B3                          & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+HPPRIMAVERA                       & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+ROYAL-B1                          & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Prive\_TDM-B                      & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+WIFI\_ROYAL                       & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Prive\_TDM-A                      & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+CALDAS\_DIGITAL\_PARQUINHO        & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+Prive\_TDM-C                      & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+HOTCALDAS\_MC1                    & 09/08/2014 07:48:18 & godinhopatrick@gmail.com \\
+HOUSE TECH                        & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+LOJA LAGOA                        & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+STFCS                             & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+HGR                               & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+Residencial                       & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+EXCLUSIVE                         & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+FLAVIA                            & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+                                  & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+TV RIO PARANAIBA                  & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+KITAKAS                           & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+Pousada do Galego                 & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+CLEAN                             & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+Residencial Tropical              & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+redesudeste2                      & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+Aruba 1                           & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+arterara                          & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+privediversao                     & 09/08/2014 07:49:46 & godinhopatrick@gmail.com \\
+CALDAS\_DIGITAL\_MESTREORLANDO\_I & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+AP-24-EBG-S3                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ALQUIMIA 01                       & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ATALAIA-WIFI                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+CONVIDADOS-ATALAIA                & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ATALAIA-WIFI                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+                                  & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ATALAIA-WIFI                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+AP-2x2-58-EBG-S1                  & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ATALAIA-WIFI                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+CONVIDADOS-ATALAIA                & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+LOJA VANIA                        & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+PapCentral                        & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+CONVIDADOS-ATALAIA                & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+CONVIDADOS-ATALAIA                & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+Papelaria Central                 & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+Maria\_Alves                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+ATALAIA-WIFI                      & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+AP-2x2-58-EBG-S4                  & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+HOTCALDASARB1                     & 09/08/2014 07:53:39 & godinhopatrick@gmail.com \\
+GLOBALNET\_III                    & 09/08/2014 08:25:35 & godinhopatrick@gmail.com \\
+Ilton                             & 09/08/2014 08:25:35 & godinhopatrick@gmail.com \\
+GLOBALNET\_M5\_I                  & 09/08/2014 08:25:35 & godinhopatrick@gmail.com \\
+Italac-4                          & 09/08/2014 08:25:35 & godinhopatrick@gmail.com \\
+GLOBALNET\_II                     & 09/08/2014 08:25:35 & godinhopatrick@gmail.com \\
+Rogerio                           & 09/08/2014 08:28:17 & godinhopatrick@gmail.com \\
+GLOBALNET\_I                      & 09/08/2014 08:28:17 & godinhopatrick@gmail.com \\
+pontonet-002                      & 09/08/2014 08:28:17 & godinhopatrick@gmail.com \\
+pontonet-001                      & 09/08/2014 08:28:17 & godinhopatrick@gmail.com \\
+GLOBALNET\_III                    & 09/08/2014 08:28:17 & godinhopatrick@gmail.com \\
+PTP-Minas                         & 09/08/2014 08:42:20 & godinhopatrick@gmail.com \\
+pontonet-64-3447-2050             & 09/08/2014 08:42:20 & godinhopatrick@gmail.com \\
+Soft5g64                          & 09/08/2014 09:19:07 & godinhopatrick@gmail.com \\
+Soft09                            & 09/08/2014 09:19:07 & godinhopatrick@gmail.com \\
+altlore                           & 09/08/2014 09:19:07 & godinhopatrick@gmail.com
+\end{longtable}
+\end{center}
+
+Através da Tabela 3 podemos deduzir pelos nomes das redes, que no dia 09/08/2014, sábado, o usuário foi para Caldas Novas - GO, fungindo assim do padrão das redes que coletava quando estava em sua residência ou no trabalho. Assim concluímos que não podemos garantir que os pontos coletados diariamente se repetem até nos sábados e domingos, mas podemos dizer que existe uma grande probabilidade de se repetir em dias de semana, onde a rotina de vida do usuário o induz a ser repetitivo.
+
+
+Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso protótipo de aplicativo, bem como o que foi, e pode ser produzido através dele.
+
+
 
 \chapter{Conclusão}
-
-
-\todo{Melhore as análises e, consequentemente, as conclusões, e o trabalho fica defensável. Ficando bom, marcamos com Cláudio e Faina.}
 
 
 Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado de ter o protótipo implementado, e mostrar o grande potencial a ser explorado no que se refere às análises dos dados coletados. Também podemos contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros" como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
