@@ -200,7 +200,12 @@ Nós  em redes móveis se movimentam e interagem eentre si e com a infraestrutur
 \acro{SSID}{Service set ID}
 \acro{BSSID}{Basic Service set Identifier}
 \acro{API}{Application Programming Interface}
-\acro{MANET }{Mobile Ad-Hoc Networks}
+\acro{MANET}{Mobile Ad-Hoc Networks}
+\acro{VANET}{Vehicular Ad Hoc Networks}
+\acro{dBm}{decibel miliwatt}
+\acro{LAN}{Local Area Network}
+\acro{WAN}{Wired Area Network}
+
 \end{acronym}
 
 
@@ -219,29 +224,29 @@ Nós  em redes móveis se movimentam e interagem eentre si e com a infraestrutur
 %TCC:
 \section{Contextualização}
 \subsection{Mobile Ad-hoc Network}
-Uma \ac{MANET} \todo{Acrnonimo} é uma rede em que nós se movimentam livremente comunicando entre si e entre\todo{comunica entre o ambiente?} o ambiente em que estão inseridos, sem a necessidade de nenhuma infraestrutura de rede. Essas interações abrem um leque de funcionalidades a serem implementadas para operar nesse meio. Como por exemplo, a funcionalidade que temos hoje em dia de rotear a internet do celular provinda de pacote de dados, com dispositivos próximos através de uma rede wireless.
+Uma \ac{MANET} é uma rede em que nós se movimentam livremente comunicando entre si e com o ambiente em que estão inseridos, sem a necessidade de nenhuma infraestrutura de rede. Essas interações abrem um leque de funcionalidades a serem implementadas para operar nesse meio. Como por exemplo, a funcionalidade que temos hoje em dia de rotear a internet do celular provinda de pacote de dados, com dispositivos próximos através de uma rede \ac{WiFi}.
 
-Os nós em uma MANET se movem arbitrariamente, e essa é a grande\todo{grande? ou principal?} característica da rede, mas também o principal ofensor\todo{?} na qualidade da comunicação disponibilizada nesse ambiente, pois a arquitetura\todo{?} entre eles deve sempre estar se adaptando para os novos meios em que estão inseridos \cite{de2002mobile}.
+Os nós em uma \ac{MANET} se movem arbitrariamente, e essa é a principal característica da rede, a qual torna a comunicação disponibilizada nesse ambiente complexa de se manter a qualidade das trocas de mensagens, pois o meio em que estão inseridos deve sempre estar se adaptando para as novas localizações em que os nós se encontram. \cite{de2002mobile}.
 
-Desde que surgiu, a MANET tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa de crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa por\todo{por?} esse paradigma. A partir das pesqusias intensas na\todo{na} MANET, surgiram outras redes móveis baseadas em sua proposta inicial. Como por exemplo a VANET que será introduzida na próxima seção.
+Desde que surgiu, a \ac{MANET} tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa do crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa envolvendo esse paradigma. A partir das pesquisas intensas nas \ac{MANET}, surgiram outras redes móveis baseadas em sua proposta inicial. Como por exemplo a \ac{VANET} que será introduzida na próxima seção.
 
 
 
 \subsection{VANET}
-VANET \todo{acronimo} são redes móveis MANET onde os nós são os veículos e até a estrada, onde há comunicação apenas entre os automóveis (IVC - Inter Vehicle Communication), ou entre os mesmos e a estrada (RVC - Road Vehicle Communication).\todo{citacao}
+\ac{VANET} são redes móveis \ac{MANET} onde os nós são os veículos e até a estrada, onde há comunicação apenas entre os automóveis (IVC - Inter Vehicle Communication), ou entre os mesmos e a estrada (RVC - Road Vehicle Communication). \cite{ufrj-Vanet}
 
-Assim como na MANET, a Vehicular Ad-Hoc Network também permite que várias aplicações com vários objetivos sejam desenvolvidos, bem como\todo{bem como ou por exemplo?} alertar obstáculos na estrada, broadcast de informações de segurança, compartilhar informações de tráfego ou até solicitar socorro em algum acidente.
+Assim como na MANET, a Vehicular Ad-Hoc Network também permite que várias aplicações com vários objetivos sejam desenvolvidos, como por exemplo alertar obstáculos na estrada, broadcast de informações de segurança, compartilhar informações de tráfego ou até solicitar socorro em algum acidente.
 
-As simualções\todo{?} e experimentos tem tido um papel importante no desenvolvimento das soluções para redes veiculares. A atenção maior tem sido dada no desenvolvimento de modelos realistas de estrada e principalmente no estudo da mobilidade dos veículos. Por exemplo, modelos de como os carros se movem ao longo do trajeto, levando em consideração sua velocidade, sinais de transito\todo{eu não vou corrigir acentuação no seu texto}, dentre outros fatores.\todo{citacao} 
+As simulações e experimentos dos algoritmos tem tido um papel importante no desenvolvimento das soluções para redes veiculares. A atenção maior tem sido dada no desenvolvimento de modelos realistas da estrada e principalmente no estudo da mobilidade dos veículos. Por exemplo, modelos de como os carros se movem ao longo do trajeto, levando em consideração sua velocidade, sinais de trânsito, dentre outros fatores. \cite{6710069} 
 
-O grande desafio das Redes Ad-Hoc Veiculares é o roteamento entre os nos\todo{'}, devido à alta taxa de mobilidade dos veículos que são conectados entre si intermitentemente, dificultando a entrega das mensagens entre os \todo{os?} ou estrada, pois frequentemente um nó muda seu endereço, ficando assim diferente de qual se identificou.
+O grande desafio das Redes Ad-Hoc Veiculares é o roteamento entre os nós, devido à alta taxa de mobilidade dos veículos que são conectados entre si intermitentemente, dificultando a entrega das mensagens entre os nós e a comunicação com a estrada, pois frequentemente um nó muda seu endereço ficando assim diferente de qual se identificou.
 
-Alem do problema citado acima, existe um agravante relacionado a velocidade de conexão entre os , os quais se comunicam muito rápido, levando em consideração que os mesmos estejam em uma via rápida.
+Além do problema citado acima, existe um agravante relacionado a velocidade de conexão entre os nós, os quais se comunicam muito rápido, levando em consideração que os mesmos estejam em uma via rápida.
 
 \subsection{Predição de localização}
-Estudar a implementação de algoritmos que preveem a localização de um nó em um determinado momento são \todo{estuda é, não são} de extrema importância, pois impulsionam \todo{concordância} e otimizam a  utilização e pesquisas das redes MANET e suas derivadas através da gestão proativa que será exemplificada a seguir.  \cite{6838650}
+Estudar a implementação de algoritmos que preveem a localização de um nó em um determinado momento é de extrema importância, pois impulsiona e otimiza a utilização das redes \ac{MANET}, bem como as pesquisas relacionadas à estas redes e suas derivadas através da gestão proativa que será exemplificada a seguir.  \cite{6838650}
 
-Caso um nó mande uma requisição para outro e logo após mude de localização, os algoritmos possibilitam o responsável pela resposta ser proativo o bastante para saber em qual posição o destinatário estará para receber a mensagem. Com a implementação da predição, grande parte do problema da mobilidade o qual é o principal desafio da VANET, estaria resolvido.
+Caso um nó mande uma requisição para outro e logo após mude de localização, os algoritmos possibilitam o responsável pela resposta ser proativo o bastante para saber em qual posição o destinatário estará para receber a mensagem. Com a implementação da predição, grande parte do problema da mobilidade o qual é o principal desafio da \ac{VANET} estaria resolvido.
 
 Podemos descrever vários cenários de utilização da predição de localização, operações como prever e otimizar tráfego em cidades inteligentes, estudo de potenciais clientes para um passeio ecológico, alertas de acidentes na estrada em veículos inteligentes.
 
@@ -261,7 +266,7 @@ O grande problema do PheroCast é a sua avaliação limitada, ou seja, é necess
 Atualmente não existem ``traces'' reais, e sim módulos de mobilidade sintéticos, os quais não são realistas. Daí vem a proposta deste trabalho, o qual irá cooperar para avaliação confiável do PheroCast, coletando dados de mobilidade humana reais, através de seus dispositivos móveis.
 
 \section{Proposta}
-A proposta deste trabalho é desenvolver um aplicativo que que \todo{se você demonstrar esse nível de descuido com seu texto, será difícil acreditar em qualquer coisa que diga.} opere em dispositivos móveis com sistema operacional Android, para capturar \emph{traces} reais de mobilidade humana. Para tal, o sistema irá coletar, periodicamente, diversas informações disponíveis sobre as redes wireless que estão no alcance do dispositivo móvel do usuário, e armazenar em um servidor para que os dados sejam compilados e utilizados para avaliação do PheroCast.
+A proposta deste trabalho é desenvolver um aplicativo que opere em dispositivos móveis com sistema operacional Android, para capturar \emph{traces} reais de mobilidade humana. Para tal, o sistema irá coletar, periodicamente, diversas informações disponíveis sobre as redes wireless que estão no alcance do dispositivo móvel do usuário, e armazenar em um servidor para que os dados sejam compilados e utilizados para avaliação do PheroCast.
 
 Para que a coleta resulte em rastros úteis, a mesma deve ser feita com um grande número de usuários, coletando assim uma variação importante de informações que serão utilizadas nos diversos tipos de análise. 
 
@@ -271,24 +276,23 @@ Para que a coleta resulte em rastros úteis, a mesma deve ser feita com um grand
 
 	O PheroCast, conjunto de algoritmos para prever a localização de um nó em alguma rede móvel, foi desenvolvido por um grupo de pesquisa da Universidade Federal de Uberlândia, o The Distributed Systems and Networks  Research Group, criado em 2013, constituído de doutores, mestres e alunos da Faculdade de Computação. citar grupo. 
 	
-	Nosso objetivo nessa seção não é de descrever o algoritmo bem como seus passos, cálculos e funções, e sim, explicar o conceito do algoritmo e seus principais componentes. Tais assuntos foram utilizados para o desenvolvimento deste trabalho. \todo{Pois eu acho que deveria sim descrever o algoritmo aqui, de forma breve, mas descrever.}
 	
-	Para entedermos a abordagem do Pherocast, que consiste na previsão da posição dos nós de uma rede móvel baseada no conceitos dos feromônios, vamos conceituar e exemplificar alguns componentes utilizados pelo algoritmo.
+	Para entendermos a abordagem do Pherocast, que consiste na previsão da posição dos nós de uma rede móvel baseada no conceitos dos feromônios, vamos conceituar e exemplificar alguns componentes utilizados pelo algoritmo.
 
 	Como as formigas passam a vida em contato com o solo, em suas caminhadas, elas deixam um rastro de feromônio que pode ser seguida por ouras formigas. Trazendo para o nosso contexto, um nó em uma rede móvel pode sinalizar os pontos em que passou, e assim construir um caminho que percorreu de um ponto a outro. Podemos também afirmar com esse conceito que um nó está em uma localização X se X é o sinal mais perto de sua posição.
 	
-	\cite{6838650} Cada \todo{citação no lugar errado. Faz ou não parte da oração?} marca, ou log deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção  tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização é \todo{seja} pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco ``feromônio'' foi liberado.
+	Cada marca, ou log deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização seja pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco ``feromônio'' foi liberado.\cite{6838650} 
 	
-	No PheroCast esses sinais que contém a localização e a hora, \todo{esta , não faz sentido} são convertidos em Phero Trails, um dígrafo que contém como vértices os locais visitados pelos nós, e a direção em que estão (norte, sul, leste, oeste) ligados  por arestas de forma em que represente a movimentação do nó, e assim seu caminho o qual possui uma localização inicial e uma final.
+	No PheroCast esses sinais que contém a localização e a hora são convertidos em Phero Trails, um dígrafo que contém como vértices os locais visitados pelos nós, e a direção em que estão (norte, sul, leste, oeste) ligados  por arestas de forma em que represente a movimentação do nó, e assim seu caminho o qual possui uma localização inicial e uma final.\cite{6838650} 
 	
-	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes, também definimos as possíveis rotas entre um determinado ponto e outro.
+	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes, também definimos as possíveis rotas entre um determinado ponto e outro.\cite{6838650} 
 	
 	Dado um Phero Map definido, temos todas as variáveis que o algoritmo de previsão de uma futura localização do nó, descrita no Phero Cast necessita. Tais elas são: localização, direção, quantidade de vezes que passou pela localização. 
 	
  	O produto final desse trabalho, tem como objetivo produzir dados reais de localização, tratando os feromônios como registros de rede \ac{WiFi}, registrados pelo dispositivo móvel em um determinado intervalo de tempo, e armazenando em um local para ser reproduzidas em mapas e diagramas, como aborda o Phero Cast.
 
 \section{Redes sem fio}
-A troca de mensagens digitais utilizando redes sem fios é uma idéia bem antiga, pois em 1901, foi demonstrado como funcionava um telégrafo sem fio, por Guglielmo Marconi, que transmitia informações de um navio para o litoral por meio de código morse. A grande diferença para a tecnologia atual é o desempenho, mas a teoria da funcionalidade apresentada com os aparelhos que temos hoje em dia é a mesma. Nesse paradigma, o mestre gerencia toda a comunicação com os escravos, parâmetros como endereço, tempo 
+A troca de mensagens digitais utilizando redes sem fios é uma ideia bem antiga, pois em 1901, foi demonstrado como funcionava um telégrafo sem fio, por Guglielmo Marconi, que transmitia informações de um navio para o litoral por meio de código morse. A grande diferença para a tecnologia atual é o desempenho, mas a teoria da funcionalidade apresentada com os aparelhos que temos hoje em dia é a mesma. Nesse paradigma, o mestre gerencia toda a comunicação com os escravos, parâmetros como endereço, tempo 
 
 Seguindo o modelo de \cite{tanenbaum2003redes} iremos dividir as redes sem fio em três principais categorias. A primeira categoria é a interconexão de sistemas define-se por usar rádio para interconectar periféricos de um computador como monitor, teclado, mouse, impressora. Hoje em dia alguns usuários têm dificuldade para conectar os cabos à unidade principal, outros preferem por estética e organização não utilizar cabos em suas estações. Para resolver esses e outros detalhes, algumas empresas se juntaram para desenvolver uma rede sem fio de alcance limitado nomeada Bluetooth.
 
@@ -299,16 +303,16 @@ Essa categoria de rede utiliza uma arquitetura de mestre-escravo conforme ilustr
   \caption{Paradigma Mestre-Escravo \cite{tanenbaum2003redes}}
 \end{figure}
 
-A segunda categoria de redes sem fio são as LANs sem fios. Definidas por arquiteturas em que todo computador, ou dispositivo inserido na rede tem um modem de rádio e uma antena que fornece um meio de comunicar com outros dispositivos. Na maioria das vezes existe uma antena principal que fornece a comunicação para os computadores conectados na mesma. Como por exemplo na Figura 2, que demonstra a arquitetura comum das LANs sem fios que temos hoje na maioria das casas.
+A segunda categoria de redes sem fio são as LANs sem fios. Definidas por arquiteturas em que todo computador, ou dispositivo inserido na rede tem um modem de rádio e uma antena que fornece um meio de comunicar com outros dispositivos. Na maioria das vezes existe uma antena principal que fornece a comunicação para os computadores conectados na mesma. Como por exemplo na Figura 2, que demonstra a arquitetura comum das \ac{LAN} sem fios que temos hoje na maioria das casas.
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.9]{lan} 
-  \caption{Arquitetura comum de LANs sem fio \cite{tanenbaum2003redes}}
+  \caption{Arquitetura comum de uma \ac{LAN} sem fio \cite{tanenbaum2003redes}}
 \end{figure}
 
-As WANs sem fio, terceira categoria de redes sem fio, é utilizada em sistemas geograficamente distribuídos como por exemplo a rede de telefonia celular. Existe uma grande semelhança entre as redes sem fio LANs e WANs, uma das diferenças mais evidentes são as distâncias de alcance do sinal, implicando na taxa de velocidade de comunicação. Ou seja, como nas WANs sem fio a distância é maior, a velocidade de tráfego dos bits é bem menor que nas LANs que a velocidade pode alcançar entre 10Mbps e 1Gbps.
+As \ac{WAN} sem fio, terceira categoria de redes sem fio, é utilizada em sistemas geograficamente distribuídos como por exemplo a rede de telefonia celular. Existe uma grande semelhança entre as redes sem fio \ac{LAN} e \ac{WAN}, uma das diferenças mais evidentes são as distâncias de alcance do sinal, implicando na taxa de velocidade de comunicação. Ou seja, como nas \ac{WAN} sem fio a distância é maior, a velocidade de tráfego dos bits é bem menor que nas \ac{LAN} que a velocidade pode alcançar entre 10Mbps e 1Gbps.
 
-Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se conectam \todo{a maioria se conecta} em algum ponto com a rede com fio. Para isso, existem vários tipos de conexões, que são desenhadas conforme a necessidade. Como por exemplo na Figura 3, onde um avião com acesso a internet é ilustrado. Na aeronave existe um único roteador ligado com algum roteador em terra firme, e conforme o percurso os equipamentos  que não estão voando são trocados.
+Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se conecta   em algum ponto com a rede com fio. Para isso, existem vários tipos de conexões, que são desenhadas conforme a necessidade. Como por exemplo na Figura 3, onde um avião com acesso a internet é ilustrado. Na aeronave existe um único roteador ligado com algum roteador em terra firme, e conforme o percurso os equipamentos  que não estão voando são trocados.
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.9]{aviao}
@@ -321,13 +325,12 @@ Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se con
 
 	Para o desenvolvimento desse trabalho, utilizamos o sistema operacional Android, baseado em Linux que opera em celulares, netbooks, tablets, dentre outros dispositivos. O Android nos fornece um robusto framework de aplicação que nos permite implementar aplicações para dispositivos móveis utilizando Java.
 	
-
 	Tal framework disponibiliza alguns componentes, os quais alguns deles foram utilizados na construção desse trabalho.
 	Iremos detalhar cada componente a seguir:
 	\cite{googleand}
 	
 	\subsection{Activities}
-	A Activity é o componente responsável por fazer o bootstrap do aplicativo, ou seja, tem o papel de gerenciar as primeiras ações do app. Para isso utiliza-se do seu ciclo de vida, tal conceito ilustrado na Figura 4.\
+	A Activity é o componente responsável por fazer o bootstrap do aplicativo, ou seja, tem o papel de gerenciar as primeiras ações do app. Para isso utiliza-se do seu ciclo de vida, tal conceito ilustrado na Figura 4.
 	
 	O componente Activity representa uma única tela com interface para o usuário. Por exemplo, imaginemos um aplicativo de lista de compras, iremos ter uma Activity para exibir a lista de compras, outra activity para adicionar um novo produto na lista de compras, e outra para exibir um relatório de quanto gastamos no mês.
 	Uma Activity é implementada no código do aplicativo extendendo a classe Activity do Android.
@@ -339,7 +342,7 @@ Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se con
 
 	
 	\subsection{Services}
-	Service é o componente que roda em background no Android, podendo processar longas operações ou processar algum processo remoto. Um service não é responsável por fornecer interface para o usuário. Para entendermos melhor o funcionamento do Service, podemos exemplificar com o processo de tocar música enquanto se navega em outro aplicativo.
+	Service é o componente que roda em background no Android, podendo processar longas operações ou processar algum processo remoto. Um Service não é responsável por fornecer interface para o usuário. Para entendermos melhor o funcionamento do Service, podemos exemplificar com o processo de tocar música enquanto se navega em outro aplicativo.
 	Um Service é implementado no código do aplicativo extendendo a classe Service do Android.\cite{docAndroid}
 	
 	\subsection{Content Providers}
@@ -353,14 +356,14 @@ Além disso, essa técnica permite a criação de Shared Content Providers, que 
 	O Broadcast Receiver é o componente responsável por receber as mensagens broadcast do Sistema Operacional, por exemplo anúncios de que a tela foi desligada, ou a bateria está com pouca carga, ou uma foto foi tirada, ou algo na rede foi alterado. Esse componente, não fornece telas para o usuário, mas é possível criar uma barra de notificação através dele.
 
 	\subsection{Arquivo Manifest}
-	Para que o Android consiga iniciar um componente da aplicação, o sistema deve saber que esse componente existe através do arquivo AndroidManifest.xml. A aplicação desenvolvida deve conter as declarações de todos os componentes nesse arquivo, o qual está sempre localizado na pasta raíz do projeto.		
+	Para que o Android consiga iniciar um componente da aplicação, o sistema deve saber que esse componente existe através do arquivo AndroidManifest.xml. A aplicação desenvolvida deve conter as declarações de todos os componentes nesse arquivo, o qual está sempre localizado na pasta raiz do projeto.		
 
 
 \chapter{Proposta}
 
 
 \section{Arquitetura}
-A proposta principal desse trabalho é um aplicativo para plataformas Android que possibilitam \todo{aplicativo possibilita} a coleta de redes sem fio  \todo{obviamente não se quer coletar redes sem fio, mas suas informações. Mesmo que seja óbvio, é preciso escrever corretamente.} ao seu alcance, armazene-as e as envie à um banco de dados na internet. Para atender essa proposta, desenhamos uma arquitetura que consiste em duas partes, cliente e servidor.
+A proposta principal desse trabalho é um aplicativo para plataformas Android que possibilita a coleta de informações de redes sem fio ao seu alcance, armazene-as e as envie à um banco de dados na internet. Para atender essa proposta, desenhamos uma arquitetura que consiste em duas partes, cliente e servidor.
 
  O cliente é responsável pela coleta dos dados e ocasionalmente enviará os dados ao servidor. O servidor deverá consumir os dados enviados pelo dispositivo  e armazenar em um banco de dados, como mostra na Figura 5.  A seguir detalhamos cada um das partes.
 
@@ -395,8 +398,8 @@ O servidor deve tratar e  armazenar as informações que virão do cliente, como
   \item \ac{SSID} - Nome da rede.
   \item  \ac{BSSID} - MAC Address. 
   \item Capabilities - Características de segurança. 
-  \item Frequência \todo{se traduzir um, tem que traduzir os outros}- Frequência do canal que o dispositivo utilizou na comunicação.
-  \item Level - Intensidade do sinal em dBm. \todo{acronimo}
+  \item Frequency - Frequência do canal que o dispositivo utilizou na comunicação.
+  \item Level - Intensidade do sinal em \ac{dBm}.
   \item Horário - Horário em que a rede foi capturada
   \item Identificador do Usuário do Dispositivo
   \end{itemize}
@@ -407,9 +410,9 @@ O sistema deverá tratar os dados do cliente com anonimidade, ou seja o aplicati
 \chapter{Desenvolvimento}
 
 \section{Aplicativo}
-Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as redes wireless disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
+Como já mencionado, o produto final deste trabalho foi um aplicativo para dispositivos Android, o qual armazena periodicamente as informações das redes \ac{WiFi} disponíveis em seu alcance, e disponibiliza em um certo momento essas informações na nuvem.
 
-Para tal, utilizamos a \ac{API} do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor \ac{WiFi} do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
+Para tal, utilizamos a \ac{API} do Android para operações que envolveu o funcionamento do dispositivo, como por exemplo, a coleta das informações das redes em alcance, o sinal de que foi encontrado uma rede com internet, a ação de desligar e ligar o receptor \ac{WiFi} do aparelho, dentre outras operações. Além disso, implementamos o código orientado a objetos, onde cada rede coletada foi representada por um objeto.
 
 Foram utilizadas também classes que auxiliam nas funcionalidades do aplicativo, como por exemplo, o armazenamento em uma base de dados do dispositivo, o envio dos dados para a nuvem, a identificação do usuário pelo e-mail cadastrado no dispositivo.
 
@@ -440,15 +443,15 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
 \end{lstlisting}
 
 
-  Após tratar a situação do sinal wireless do aparelho, a tarefa registra através de um Intent, a classe WifiScanReceiver estendida do componente BroadCastReceiver, responsável por receber o resultado da varredura das redes wireless ao alcance do aparelho realizada.
+  Após tratar a situação do sinal wireless do aparelho, a tarefa registra através de um Intent, a classe WifiScanReceiver estendida do componente BroadCastReceiver, responsável por receber o resultado da varredura das redes \ac{WiFi} ao alcance do aparelho realizada.
  
  A responsabilidade da coleta das redes sem fio é do objeto instanciado da classe WifiManager da \ac{API} do Android, o qual é executado através do método startScan(), após a tarefa registrar o receptor das redes encontradas.
  
-  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são \ac{BSSID}, \ac{SSID}, Capabilities, Frequency, level e o momento em que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, a qual, quando instanciada através pelo \todo{através pelo?} padrão de projeto Singleton, é criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
+  Ao receber a lista de redes através do método getScanResults da classe WifiManager, a classe WifiScanReceiver converte a lista recebida em um array de objetos da classe NetworkPoint, classe criada para representar a rede e seus atributos que são \ac{BSSID}, \ac{SSID}, Capabilities, Frequency, level e o momento em que foi capturada. O array de NetworkPoint é salvo na base de dados, utilizando a classe NetworkPointDAO, a qual, quando instanciada através do padrão de projeto Singleton, é criada em conjunto com a PersistenceHelper, para auxiliar nas operações com o banco de dados do aplicativo, o qual foi utilizado SQLite.
  
  Importante lembrar que após o serviço de receber e armazenar as redes capturadas, a situação anterior ao processamento do sinal wireless do aparelho é mantida, ou seja, caso o aparelho esteja com a funcionalidade \ac{WiFi} desligada, após o processamento (que liga a mesma), a tarefa principal é responsável por desligá-la. 
  
-  Para armazenar na nuvem as redes coletadas\todo{novamente, não está coletando redes}, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher.  Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
+  Para armazenar na nuvem as informações das redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher. Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
 
   O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7.    
   
@@ -485,7 +488,7 @@ O trecho de código a seguir, retirado da classe NetworkChangeReceiver, é dispa
 
  Na linha 11 é feita a requisição POST, utilizando a URL do endereço destinatário, e os dados da chamada os quais representam os campos do formulário que será respondido a quantidade de vezes necessárias para esvaziar o banco de dados local. 
  
-Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede wireless com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada.
+Resumindo e exemplificando, imaginemos um cenário onde o aplicativo coletou durante o dia seis mil redes ao seu redor e armazenou em sua base de dados local. Ao chegar a noite, o dispositivo conecta-se com uma rede \ac{WiFi} com Internet, então o aplicativo ao receber a notificação que está conectado a Internet, faz seis mil requisições ao Google Docs, respondendo ao formulário criado, onde cada resposta contém dados de uma única rede sem fio coletada.
 
 Consideramos para trabalhos futuros a melhoria das requisições ao serviço de armazenamento, pois milhares de requisições seguidas não é o melhor procedimento a se realizar, e sim uma requisição com um lote de redes sem fio, diminuindo assim a quantidade de transações com o sistema de armazenamento na nuvem.
  
@@ -498,10 +501,19 @@ Consideramos para trabalhos futuros a melhoria das requisições ao serviço de 
 
 \section{Limpeza dos dados}
 Para atender a proposta de limpeza de dados, providenciamos a anonimidade dos usuários contribuintes através da transformação do e-mail coletado pela classe UserEmailFetcher em um hash antes de mandá-lo ao serviço de armazenamento na nuvem.
+A seguir temos um exemplo de um registro com as informações \ac{SSID} e ID (identificador do usuário) transformadas em hash. 
 
-O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o hash do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte.
+\begin{center}
+  \begin{tabular}{ l | c | r }
+    \hline
+    SSID & ID\\ \hline
+    8d179f92a46fab285a79929ec51d841a & aa30415a863fa6539cf2e0d741697987 \\ \hline
+  \end{tabular}
+\end{center}
 
-\todo{exemplo de uma linha de dados anonimizada.}
+
+O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o hash do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte. 
+
 
 
 \begin{lstlisting}
@@ -535,15 +547,18 @@ Importante ressaltar também que a proposta da limpeza de dados, a qual trata os
 Com os dados coletados e separados por colaborador compilados em uma planilha, conseguimos o suficiente para realizar algumas análises sobre as informações adquiridas.  Tais análises, serão exibidas na próxima seção.
 
 \section{Análise}
-Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, a qual não tratamos de forma anônima para permitir maior insight sobre os resultados, consideramos que a rede ALGARTELECOMVISITANTES seja a do local de trabalho, e a rede ``Lar Doce Lar'' seja a de sua residência, temos um cenário onde o usuário se locomoveu no dia  de um local para outro no dia 30/07/2014,\todo{frase estranha} coletando e armazenando as redes sem fio ao seu alcance.
+Por se tratar de uma quantidade grande de dados coletados, poderíamos ter realizado diversas análises com propósitos diferentes, mas escolhemos algumas que mais relacionam com o propósito deste trabalho. Por exemplo, na Análise 1, a qual não tratamos de forma anônima para permitir maior insight sobre os resultados, consideramos que a rede ALGARTELECOMVISITANTES seja a do local de trabalho, e a rede ``Lar Doce Lar'' seja a de sua residência, tendo assim um cenário onde o usuário se locomoveu de um local para outro no dia 30/07/2014, e seu dispositivo android coletou e armazenou as informações das redes sem fio ao seu alcance.
 
 
-Observamos que alem\todo{acentuação. texstudio tem corretor ortográfico.} das redes citadas acima, o usuário identificado por godinhopatrick@gmail.com visualizou outras 12 redes, isso pode indicar que durante um trajeto que durou aproximadamente 24 minutos, poucas redes foram alcançadas. Tal informação nos leva a concluir que provavelmente o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta.  \todo{Estas conclusões, dadas que são feitas sobre você mesmo, são suspeitas. É bom deixar claro que não é bem uma conclusão da análise mas um reflexo do conhecimento prévio do padrão de mobilidade do usuário.}
+Observamos que além das redes citadas acima, o usuário identificado por godinhopatrick@gmail.com visualizou outras 12 redes, isso pode indicar que durante um trajeto que durou aproximadamente 24 minutos, poucas redes foram alcançadas. Tal informação nos leva a concluir que provavelmente o usuário do dispositivo utiliza de um caminho afastado da zona residencial, onde poucas redes foram capturadas, ou a velocidade que estava percorrendo o caminho era alta. 
  
 Já na Análise 2, a qual foi tratada com anonimidade, possui redes coletadas no dia 30/07. Consideramos que a rede capturada em seu local de trabalho seja a UFU-Portal e em sua residência a "nao e sua", e tivemos um percurso com mais redes coletadas em um intervalo de tempo semelhante com a análise apresentada na Análise 1. Podemos afirmar então que o usuário da Análise 2 percorreu por um caminho com mais redes sem fio, ou que estava em baixa velocidade permitindo maior frequência de varredura das redes ao redor. Segundo o responsável pelo dispositivo que coletou essas redes, o trajeto é normalmente percorrido a pé.
 
+O conhecimento prévio dos padrões de mobilidade dos usuários destacados nos resultados foi fundamental para a conclusão das análises acima, pois assim consideramos alguns valores tais como locais de trabalho, horário de descanso, dentre outros.
 
 Para considerarmos que um local é o trabalho do usuário e outro é a residência, analisamos a repetição da rede coletada em um determinado intervalo de horário, por exemplo, se no horário comercial um conjunto de redes X é frequentemente capturado, pode-se afirmar que essa localização provavelmente é onde o dono do dispositivo trabalha. No caso da primeira análise apresentada, onde o ID se dá por godinhopatrick@gmail.com, as redes são frequentes e repetitivas durante o período das 09:00 até por volta de 18:00, onde começa uma variação na coleta das redes, o que nos leva a entender que o usuário está se locomovendo.
+
+
 
 
 \small
@@ -891,7 +906,7 @@ altlore                           & 09/08/2014 09:19:07 & godinhopatrick@gmail.c
 \end{longtable}
 \end{center}
 
-Através da Tabela 3 podemos deduzir pelos nomes das redes, que no dia 09/08/2014, sábado, o usuário foi para Caldas Novas - GO, fungindo \todo{fungindo?} assim do padrão das redes que coletava quando estava em sua residência ou no trabalho. Assim concluímos que não podemos garantir que os pontos coletados diariamente se repetem até nos sábados e domingos, mas podemos dizer que existe uma grande probabilidade de se repetir em dias de semana, onde a rotina de vida do usuário o induz a ser repetitivo.
+Através da Tabela 3 podemos deduzir pelos nomes das redes, que no dia 09/08/2014, sábado, o usuário foi para Caldas Novas - GO, fugindo assim do padrão das redes que coletava quando estava em sua residência ou no trabalho. Assim concluímos que não podemos garantir que os pontos coletados diariamente se repetem até nos sábados e domingos, mas podemos dizer que existe uma grande probabilidade de se repetir em dias de semana, onde a rotina de vida do usuário o induz a ser repetitivo.
 
 
 Mais análises são possíveis de ser construídas, porém pela limitação do serviço que utilizamos para armazenar, o Google Docs Sheets, as anteriores foram as escolhidas para demonstrar a importância do nosso protótipo de aplicativo, bem como o que foi, e pode ser produzido através dele.
@@ -901,7 +916,7 @@ Mais análises são possíveis de ser construídas, porém pela limitação do s
 \chapter{Conclusão}
 
 
-Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado de ter o protótipo implementado, e mostrar o grande potencial a ser explorado no que se refere às análises dos dados coletados. Também podemos contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de "rastros"  \todo{não é a forma correta de se colocar aspas. o correto é  ``assim''} como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
+Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado de ter o protótipo implementado, e mostrar o grande potencial a ser explorado no que se refere às análises dos dados coletados. Também podemos contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de ``rastros'' como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
 
 
 Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Outro ponto a ser implementado futuramente, como mencionado, será a limpeza dos dados para garantir a anonimidade dos contribuintes dos dados.
