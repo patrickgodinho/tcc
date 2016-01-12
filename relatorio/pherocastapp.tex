@@ -43,7 +43,7 @@ brazil]{facom-ufu-abntex2}
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 
-\titulo{PheroCast App} %TCC
+\titulo{Aplicativo para coleta de rastros de mobilidade para validação dos algoritmos de previsão de localização.} %TCC
 
 \hypersetup{pdfkeywords={palavra 1}{palavra 2}{palavra 4}{palavra 4}{palavra 5}} %TCC
 
@@ -139,7 +139,7 @@ Agradeço a Deus, minha esposa e ao meu orientador Lásaro J. Camargos pelo apoi
 
 \begin{resumo} %TCC:
 
-Nós  em redes móveis se movimentam e interagem eentre si e com a infraestrutura, ações que complicam a gestão da rede. Se a infraestrutura puder estimar a posição futura dos nós, com alto grau de acerto, tal estimativa poderia ser usada para, de forma proativa, reagir à movimentação dos nós, bem como tornar possível diversos serviços, como previsão de congestionamento, otimização de recursos de rede, e planejamento de rotas colaborativo. Há na literatura algoritmos para tal fim, prever a posição de nós em redes móveis, contudo, os mesmos carecem de validação utilizando dados reais. Neste trabalho propusemos e implementamos um aplicativo para telefones móveis que coleta rastros de mobilidade entre redes sem fio, que pode ser usado para avaliação de algoritmos de predição de mobilidade. O aplicativo desenvolvido foi testado por cinco usuários, por um período de um mês, levando à coleta de cerca de 50.000 registros de localização, e embora os rastros obtidos possam ser limitados de diversas formas, são já suficientes para exemplificar análises que podem ser feitas sobre tais conjuntos de dados.
+Nós  em redes móveis se movimentam e interagem eentre si e com a infraestrutura, ações que complicam a gestão da rede. Se a infraestrutura puder estimar a posição futura dos nós, com alto grau de acerto, tal estimativa poderia ser usada para, de forma proativa, reagir à movimentação dos nós, bem como tornar possível diversos serviços, como previsão de congestionamento, otimização de recursos de rede, e planejamento de rotas colaborativo. Há na literatura algoritmos para tal fim, prever a posição de nós em redes móveis, contudo, os mesmos carecem de validação utilizando dados reais. Neste trabalho propusemos e implementamos um aplicativo para telefones móveis que coleta rastros de mobilidade entre redes sem fio, que podem ser usados para avaliação de algoritmos de predição de mobilidade. O aplicativo desenvolvido foi testado por cinco usuários, por um período de um mês, levando à coleta de cerca de 50.000 registros de localização, e embora os rastros obtidos possam ser limitados de diversas formas, são já suficientes para exemplificar análises que podem ser feitas sobre tais conjuntos de dados.
 
  \vspace{\onelineskip}
     
@@ -226,11 +226,16 @@ Nós  em redes móveis se movimentam e interagem eentre si e com a infraestrutur
 \subsection{Mobile Ad-hoc Network}
 Uma \ac{MANET} é uma rede em que nós se movimentam livremente comunicando entre si e com o ambiente em que estão inseridos, sem a necessidade de nenhuma infraestrutura de rede. Essas interações abrem um leque de funcionalidades a serem implementadas para operar nesse meio. Como por exemplo, a funcionalidade que temos hoje em dia de rotear a internet do celular provinda de pacote de dados, com dispositivos próximos através de uma rede \ac{WiFi}.
 
-Os nós em uma \ac{MANET} se movem arbitrariamente, e essa é a principal característica da rede, a qual torna a comunicação disponibilizada nesse ambiente complexa de se manter a qualidade das trocas de mensagens, pois o meio em que estão inseridos deve sempre estar se adaptando para as novas localizações em que os nós se encontram. \cite{de2002mobile}.
+Os nós em uma \ac{MANET} se movem arbitrariamente e essa é a principal característica da rede a qual torna a qualidade das trocas de mensagens complexa de se manter, pois o meio em que estão inseridos deve sempre estar se adaptando para as novas localizações em que os nós se encontram. \cite{de2002mobile}.
 
-Desde que surgiu, a \ac{MANET} tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa do crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa envolvendo esse paradigma. A partir das pesquisas intensas nas \ac{MANET}, surgiram outras redes móveis baseadas em sua proposta inicial. Como por exemplo a \ac{VANET} que será introduzida na próxima seção.
+Desde que surgiu, a \ac{MANET} tem sido vista como uma das mais desafiantes abordagens de redes móveis tanto pela promessa do crescimento de dispositivos móveis, quanto pela sua complexidade, o que impulsionou a pesquisa envolvendo esse paradigma. A partir das pesquisas intensas nas \ac{MANET}, surgiram outras redes móveis baseadas em sua proposta inicial, como por exemplo a \ac{VANET} que será introduzida na próxima seção.
 
-
+\begin{center}
+\begin{figure}[hbt]
+  \includegraphics[scale=0.48]{manet}
+  \caption{Exemplo de uma \ac{MANET}}
+\end{figure}
+\end{center}
 
 \subsection{VANET}
 \ac{VANET} são redes móveis \ac{MANET} onde os nós são os veículos e até a estrada, onde há comunicação apenas entre os automóveis (IVC - Inter Vehicle Communication), ou entre os mesmos e a estrada (RVC - Road Vehicle Communication). \cite{ufrj-Vanet}
@@ -242,6 +247,13 @@ As simulações e experimentos dos algoritmos tem tido um papel importante no de
 O grande desafio das Redes Ad-Hoc Veiculares é o roteamento entre os nós, devido à alta taxa de mobilidade dos veículos que são conectados entre si intermitentemente, dificultando a entrega das mensagens entre os nós e a comunicação com a estrada, pois frequentemente um nó muda seu endereço ficando assim diferente de qual se identificou.
 
 Além do problema citado acima, existe um agravante relacionado a velocidade de conexão entre os nós, os quais se comunicam muito rápido, levando em consideração que os mesmos estejam em uma via rápida.
+\begin{center}
+\begin{figure}[hbt]
+  \includegraphics[scale=1.0]{vanet}
+  \caption{Exemplo de uma \ac{VANET}}
+\end{figure}
+\end{center}
+
 
 \subsection{Predição de localização}
 Estudar a implementação de algoritmos que preveem a localização de um nó em um determinado momento é de extrema importância, pois impulsiona e otimiza a utilização das redes \ac{MANET}, bem como as pesquisas relacionadas à estas redes e suas derivadas através da gestão proativa que será exemplificada a seguir.  \cite{6838650}
@@ -251,7 +263,7 @@ Caso um nó mande uma requisição para outro e logo após mude de localização
 Podemos descrever vários cenários de utilização da predição de localização, operações como prever e otimizar tráfego em cidades inteligentes, estudo de potenciais clientes para um passeio ecológico, alertas de acidentes na estrada em veículos inteligentes.
 
 \subsubsection{PheroCast}
-PheroCast é o nome que se deu uma abordagem de previsão da localização futura de um nó em uma rede ad-hoc móvel. Foi nomeado assim pela semelhança com o fenômeno que acontece na colônia das formigas, o qual para alertar problemas ou marcar o caminho, por onde a formiga passar ela deixará um rastro, formando assim um caminho.
+PheroCast é o nome que se deu uma abordagem de previsão da localização futura de um nó em uma rede ad-hoc móvel. Foi nomeado assim pela semelhança com o fenômeno que acontece na colônia das formigas, o qual para alertar problemas ou marcar o caminho, por onde a formiga passa ela deixa um rastro, formando assim um caminho.
 
 Nessa abordagem, o algoritmo de previsão é desenvolvido para ser processado nos próprios nós móveis. Assim, a cada intervalo de tempo definido, o nó registra um rastro de onde está. Daí vem a semelhança com o ``Pheronomium'' deixado no rastro por onde a formiga passa.
 
@@ -263,7 +275,7 @@ Segundo \cite{fynn} foi feita uma avaliação do algoritmo PheroCast usando os c
 
 O grande problema do PheroCast é a sua avaliação limitada, ou seja, é necessário, para uma abordagem com essas características, uma avaliação extensa com dados reais, que simulam de verdade a mobilidade humana. 
 
-Atualmente não existem ``traces'' reais, e sim módulos de mobilidade sintéticos, os quais não são realistas. Daí vem a proposta deste trabalho, o qual irá cooperar para avaliação confiável do PheroCast, coletando dados de mobilidade humana reais, através de seus dispositivos móveis.
+Atualmente não existem ``traces'' reais, e sim módulos de mobilidade sintéticos, os quais não são realistas. Neste contexto, a proposta deste trabalho é cooperar para avaliação confiável do PheroCast, com a coleta e análise de dados que representam a mobilidade humana através das localizações representadas por redes sem fio alcançadas por dispositivos móveis.
 
 \section{Proposta}
 A proposta deste trabalho é desenvolver um aplicativo que opere em dispositivos móveis com sistema operacional Android, para capturar \emph{traces} reais de mobilidade humana. Para tal, o sistema irá coletar, periodicamente, diversas informações disponíveis sobre as redes wireless que estão no alcance do dispositivo móvel do usuário, e armazenar em um servidor para que os dados sejam compilados e utilizados para avaliação do PheroCast.
@@ -274,45 +286,45 @@ Para que a coleta resulte em rastros úteis, a mesma deve ser feita com um grand
 \chapter{Referencial Teórico}
 \section{PheroCast}
 
-	O PheroCast, conjunto de algoritmos para prever a localização de um nó em alguma rede móvel, foi desenvolvido por um grupo de pesquisa da Universidade Federal de Uberlândia, o The Distributed Systems and Networks  Research Group, criado em 2013, constituído de doutores, mestres e alunos da Faculdade de Computação. citar grupo. 
+	O PheroCast, conjunto de algoritmos para prever a localização de um nó em alguma rede móvel, foi desenvolvido por um grupo de pesquisa da Universidade Federal de Uberlândia, o The Distributed Systems and Networks  Research Group, criado em 2013, constituído de doutores, mestres e alunos da Faculdade de Computação. \cite{6838650} 
 	
 	
 	Para entendermos a abordagem do Pherocast, que consiste na previsão da posição dos nós de uma rede móvel baseada no conceitos dos feromônios, vamos conceituar e exemplificar alguns componentes utilizados pelo algoritmo.
 
 	Como as formigas passam a vida em contato com o solo, em suas caminhadas, elas deixam um rastro de feromônio que pode ser seguida por ouras formigas. Trazendo para o nosso contexto, um nó em uma rede móvel pode sinalizar os pontos em que passou, e assim construir um caminho que percorreu de um ponto a outro. Podemos também afirmar com esse conceito que um nó está em uma localização X se X é o sinal mais perto de sua posição.
 	
-	Cada marca, ou log deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização seja pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco ``feromônio'' foi liberado.\cite{6838650} 
+	Cada marca, ou rastro deixado pelo nó contém a informação da localização e a hora em que passou por ele, e a direção tornando assim análises como a velocidade do nó, ou a grandeza da localização. Por exemplo, caso um nó sinalize que está em uma localização em vários intervalos de tempo consecutivos, podemos concluir que essa localização, ou área de alcance é grande, ou que o nó está em baixa velocidade. Por outro lado, caso uma localização seja pouco marcada, o nó pode estar em uma alta velocidade ou a área é pequena, onde pouco ``feromônio'' foi liberado.\cite{6838650} 
 	
 	No PheroCast esses sinais que contém a localização e a hora são convertidos em Phero Trails, um dígrafo que contém como vértices os locais visitados pelos nós, e a direção em que estão (norte, sul, leste, oeste) ligados  por arestas de forma em que represente a movimentação do nó, e assim seu caminho o qual possui uma localização inicial e uma final.\cite{6838650} 
 	
-	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes, também definimos as possíveis rotas entre um determinado ponto e outro.\cite{6838650} 
+	Com os Phero Trails definidos, temos a capacidade de utilizar um dos algoritmos do PheroCast e traçar o que chamamos de Phero Maps, dígrafos que contém além da localização e a direção, a quantidade de vezes que o nó passou por ali, ligados por arestas que indicam a próxima localização que o nó passou, e assim por diante. Assim conseguimos concluir que para chegar em uma localização final, o nó passou por diversos caminhos diferentes. Definimos também as possíveis rotas entre um determinado ponto e outro.\cite{6838650} 
 	
 	Dado um Phero Map definido, temos todas as variáveis que o algoritmo de previsão de uma futura localização do nó, descrita no Phero Cast necessita. Tais elas são: localização, direção, quantidade de vezes que passou pela localização. 
 	
  	O produto final desse trabalho, tem como objetivo produzir dados reais de localização, tratando os feromônios como registros de rede \ac{WiFi}, registrados pelo dispositivo móvel em um determinado intervalo de tempo, e armazenando em um local para ser reproduzidas em mapas e diagramas, como aborda o Phero Cast.
 
 \section{Redes sem fio}
-A troca de mensagens digitais utilizando redes sem fios é uma ideia bem antiga, pois em 1901, foi demonstrado como funcionava um telégrafo sem fio, por Guglielmo Marconi, que transmitia informações de um navio para o litoral por meio de código morse. A grande diferença para a tecnologia atual é o desempenho, mas a teoria da funcionalidade apresentada com os aparelhos que temos hoje em dia é a mesma. Nesse paradigma, o mestre gerencia toda a comunicação com os escravos, parâmetros como endereço, tempo 
+A troca de mensagens digitais utilizando redes sem fios é uma ideia bem antiga, pois em 1901, foi demonstrado como funcionava um telégrafo sem fio, por Guglielmo Marconi, que transmitia informações de um navio para o litoral por meio de código morse. A grande diferença para a tecnologia atual é o desempenho, mas a teoria da funcionalidade apresentada com os aparelhos que temos hoje em dia é a mesma. Nesse paradigma, o mestre gerencia toda a comunicação com os escravos, parâmetros como endereço e tempo.
 
 Seguindo o modelo de \cite{tanenbaum2003redes} iremos dividir as redes sem fio em três principais categorias. A primeira categoria é a interconexão de sistemas define-se por usar rádio para interconectar periféricos de um computador como monitor, teclado, mouse, impressora. Hoje em dia alguns usuários têm dificuldade para conectar os cabos à unidade principal, outros preferem por estética e organização não utilizar cabos em suas estações. Para resolver esses e outros detalhes, algumas empresas se juntaram para desenvolver uma rede sem fio de alcance limitado nomeada Bluetooth.
 
-Essa categoria de rede utiliza uma arquitetura de mestre-escravo conforme ilustrado na Figura 1, como por exemplo no cenário do computador e seus periféricos, na maioria das vezes o CPU é o mestre, e os componentes como mouse, teclado, impressora, fone, os escravos. Nesse paradigma, o mestre é responsável por gerenciar a comunicação com os periféricos, dizendo qual endereço utilizar, o período de transmissão, a frequência a ser utilizada, dentre outros parâmetros.
+Essa categoria de rede utiliza uma arquitetura de mestre-escravo conforme ilustrado na Figura 3, como por exemplo no cenário do computador e seus periféricos, na maioria das vezes o CPU é o mestre, e os componentes como mouse, teclado, impressora, fone, os escravos. Nesse paradigma, o mestre é responsável por gerenciar a comunicação com os periféricos, dizendo qual endereço utilizar, o período de transmissão, a frequência a ser utilizada, dentre outros parâmetros.
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.9]{bt}
   \caption{Paradigma Mestre-Escravo \cite{tanenbaum2003redes}}
 \end{figure}
 
-A segunda categoria de redes sem fio são as LANs sem fios. Definidas por arquiteturas em que todo computador, ou dispositivo inserido na rede tem um modem de rádio e uma antena que fornece um meio de comunicar com outros dispositivos. Na maioria das vezes existe uma antena principal que fornece a comunicação para os computadores conectados na mesma. Como por exemplo na Figura 2, que demonstra a arquitetura comum das \ac{LAN} sem fios que temos hoje na maioria das casas.
+A segunda categoria de redes sem fio são as LANs sem fios. Definidas por arquiteturas em que todo computador, ou dispositivo inserido na rede tem um modem de rádio e uma antena que fornece um meio de comunicar com outros dispositivos. Na maioria das vezes existe uma antena principal que fornece a comunicação para os computadores conectados na mesma. Como por exemplo na Figura 4, que demonstra a arquitetura comum das \ac{LAN} sem fios que temos hoje na maioria das casas.
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.9]{lan} 
   \caption{Arquitetura comum de uma \ac{LAN} sem fio \cite{tanenbaum2003redes}}
 \end{figure}
 
-As \ac{WAN} sem fio, terceira categoria de redes sem fio, é utilizada em sistemas geograficamente distribuídos como por exemplo a rede de telefonia celular. Existe uma grande semelhança entre as redes sem fio \ac{LAN} e \ac{WAN}, uma das diferenças mais evidentes são as distâncias de alcance do sinal, implicando na taxa de velocidade de comunicação. Ou seja, como nas \ac{WAN} sem fio a distância é maior, a velocidade de tráfego dos bits é bem menor que nas \ac{LAN} que a velocidade pode alcançar entre 10Mbps e 1Gbps.
+As \ac{WAN} sem fio, terceira categoria de redes sem fio, é utilizada em sistemas geograficamente distribuídos como por exemplo a rede de telefonia celular. Poucas características difere as redes \ac{WAN} e \ac{LAN}, como por exemplo as distâncias de alcance dos sinais, implicando na taxa de velocidade de comunicação. Ou seja, como nas \ac{WAN} sem fio a distância é maior, a velocidade de tráfego dos bits é bem menor que nas \ac{LAN} que a velocidade pode alcançar entre 10Mbps e 1Gbps.
 
-Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se conecta   em algum ponto com a rede com fio. Para isso, existem vários tipos de conexões, que são desenhadas conforme a necessidade. Como por exemplo na Figura 3, onde um avião com acesso a internet é ilustrado. Na aeronave existe um único roteador ligado com algum roteador em terra firme, e conforme o percurso os equipamentos  que não estão voando são trocados.
+Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se conecta   em algum ponto com a rede com fio. Para isso, existem vários tipos de conexões, que são desenhadas conforme a necessidade. Como por exemplo na Figura 5, onde um avião com acesso a internet é ilustrado, na aeronave existe um único roteador ligado com algum roteador em terra firme, e conforme o percurso os equipamentos que não estão voando são trocados, para atender a mobilidade do avião.
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.9]{aviao}
@@ -323,39 +335,39 @@ Para fornecer acesso a arquivos, à Internet, a maioria das redes sem fio se con
 
 \section{Android}
 
-	Para o desenvolvimento desse trabalho, utilizamos o sistema operacional Android, baseado em Linux que opera em celulares, netbooks, tablets, dentre outros dispositivos. O Android nos fornece um robusto framework de aplicação que nos permite implementar aplicações para dispositivos móveis utilizando Java.
+	Para o desenvolvimento desse trabalho, utilizamos o sistema operacional Android, baseado em Linux que opera em celulares, \emph{netbooks}, \emph{tablets}, dentre outros dispositivos. O Android nos fornece um robusto framework de aplicação que nos permite implementar aplicações para dispositivos móveis utilizando Java.
 	
-	Tal framework disponibiliza alguns componentes, os quais alguns deles foram utilizados na construção desse trabalho.
+	Tal \emph{framework} disponibiliza alguns componentes, os quais alguns deles foram utilizados na construção desse trabalho.
 	Iremos detalhar cada componente a seguir:
 	\cite{googleand}
 	
-	\subsection{Activities}
-	A Activity é o componente responsável por fazer o bootstrap do aplicativo, ou seja, tem o papel de gerenciar as primeiras ações do app. Para isso utiliza-se do seu ciclo de vida, tal conceito ilustrado na Figura 4.
+	\subsection{Atividade}
+	A \emph{Activity} é o componente responsável por fazer o \emph{bootstrap} do aplicativo, ou seja, tem o papel de gerenciar as primeiras ações do app. Para isso utiliza-se do seu ciclo de vida, tal conceito ilustrado na Figura 6.
 	
-	O componente Activity representa uma única tela com interface para o usuário. Por exemplo, imaginemos um aplicativo de lista de compras, iremos ter uma Activity para exibir a lista de compras, outra activity para adicionar um novo produto na lista de compras, e outra para exibir um relatório de quanto gastamos no mês.
-	Uma Activity é implementada no código do aplicativo extendendo a classe Activity do Android.
+	O componente \emph{Activity} representa uma única tela com interface para o usuário. Por exemplo, imaginemos um aplicativo de lista de compras, iremos ter uma \emph{Activity} para exibir a lista de compras, outra \emph{activity} para adicionar um novo produto na lista de compras, e outra para exibir um relatório de quanto gastamos no mês.
+	Uma atividade é implementada no código do aplicativo estendendo a classe \emph{Activity} do Android.
 	
 	\begin{figure}[hbt]
   		\includegraphics [scale=.7] {activity_lifecycle}
-  		\caption{Ciclo de vida de uma Activity \cite{docAndroid}}
+  		\caption{Ciclo de vida de uma Atividade \cite{docAndroid}}
 	\end{figure}
 
 	
-	\subsection{Services}
-	Service é o componente que roda em background no Android, podendo processar longas operações ou processar algum processo remoto. Um Service não é responsável por fornecer interface para o usuário. Para entendermos melhor o funcionamento do Service, podemos exemplificar com o processo de tocar música enquanto se navega em outro aplicativo.
+	\subsection{Serviços}
+	\emph{Service} é o componente que roda em background no Android, podendo processar longas operações ou processar algum processo remoto. Um \emph{Service} não é responsável por fornecer interface para o usuário. Para entendermos melhor o funcionamento do \emph{Service}, podemos exemplificar com o processo de tocar música enquanto se navega em outro aplicativo.
 	Um Service é implementado no código do aplicativo extendendo a classe Service do Android.\cite{docAndroid}
 	
-	\subsection{Content Providers}
-	Os Content Providers são parte importantíssima da arquitetura de um sistema android. É responsabilidade deles prover às aplicações o conteúdo que elas precisam para funcionar, ou seja, os dados.
+	\subsection{Provedores de conteúdo}
+	Os \emph{Content Providers} são parte importantíssima da arquitetura de um sistema android. É responsabilidade deles prover às aplicações o conteúdo que elas precisam para funcionar, ou seja, os dados.
 
 As aplicações poderiam muito bem acessar diretamente um banco de dados, por exemplo. Porém, é uma boa prática tornar o modo como os dados são gravados transparente à aplicação. 
 
-Além disso, essa técnica permite a criação de Shared Content Providers, que são providers “públicos” que podem ser acessados por várias aplicações. Por exemplo, existe o content provider de SMS/MMS que permite a qualquer aplicação ler as mensagens recebidas por um telefone celular.
+Além disso, essa técnica permite a criação de /emph{shared Content Providers}, que são provedores de conteúdos “públicos” que podem ser acessados por várias aplicações. Por exemplo, existe o \emph{content provider} de SMS/MMS que permite a qualquer aplicação ler as mensagens recebidas por um telefone celular.
 
-	\subsection{Broadcast receivers}
+	\subsection{Receptores de transmissão}
 	O Broadcast Receiver é o componente responsável por receber as mensagens broadcast do Sistema Operacional, por exemplo anúncios de que a tela foi desligada, ou a bateria está com pouca carga, ou uma foto foi tirada, ou algo na rede foi alterado. Esse componente, não fornece telas para o usuário, mas é possível criar uma barra de notificação através dele.
 
-	\subsection{Arquivo Manifest}
+	\subsection{Arquivo \emph{Manifest}}
 	Para que o Android consiga iniciar um componente da aplicação, o sistema deve saber que esse componente existe através do arquivo AndroidManifest.xml. A aplicação desenvolvida deve conter as declarações de todos os componentes nesse arquivo, o qual está sempre localizado na pasta raiz do projeto.		
 
 
@@ -365,7 +377,7 @@ Além disso, essa técnica permite a criação de Shared Content Providers, que 
 \section{Arquitetura}
 A proposta principal desse trabalho é um aplicativo para plataformas Android que possibilita a coleta de informações de redes sem fio ao seu alcance, armazene-as e as envie à um banco de dados na internet. Para atender essa proposta, desenhamos uma arquitetura que consiste em duas partes, cliente e servidor.
 
- O cliente é responsável pela coleta dos dados e ocasionalmente enviará os dados ao servidor. O servidor deverá consumir os dados enviados pelo dispositivo  e armazenar em um banco de dados, como mostra na Figura 5.  A seguir detalhamos cada um das partes.
+ O cliente é responsável pela coleta dos dados e ocasionalmente enviará os dados ao servidor. O servidor deverá consumir os dados enviados pelo dispositivo  e armazenar em um banco de dados, como mostra na Figura 7.  A seguir detalhamos cada um das partes.
 
 \begin{figure}[hbt]
   \includegraphics{arquiteturaProposta}
@@ -377,11 +389,11 @@ A proposta principal desse trabalho é um aplicativo para plataformas Android qu
 Do lado do cliente desenvolvemos um sistema para rodar em dispositivos com o sistema operacional Android, utilizando a linguagem Java.
 
 \begin{figure}[hbt]
-  \includegraphics [scale=.4] {pherocast1}
+  \includegraphics [scale=.48] {pherocast1}
   \caption{Processo de captura dos dados pelo aplicativo.}
 \end{figure}
 
-O aplicativo irá utilizar os serviços de \ac{WiFi} do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do 	dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 6.
+O aplicativo irá utilizar os serviços de \ac{WiFi} do aparelho para realizar a coleta dos pontos de rede que estão ao redor naquele determinado momento. Após a coleta, o sistema irá armazenar as informações coletadas na base de dados local do 	dispositivo, para isso utilizaremos o banco de dados SQLite. Tal procedimento é ilustrado na Figura 8.
 
 Para realizar o envio ao servidor, o aplicativo será alertado quando o dispositivo se conectar a uma rede \ac{WiFi} com rede Internet, assim irá enviar os dados armazenados em sua base local para o servidor de aplicação na nuvem e apagar os mesmos. 
 
@@ -391,7 +403,7 @@ Caso o serviço de \ac{WiFi} esteja desligado, o aplicativo deverá ser respons�
 
 
 \subsection{Servidor}
-Para o servidor, propomos utilizar algum servidor na nuvem de alta escalabilidade e alta disponibilidade, por se tratar de inserções contínuas todo o tempo.
+Para o servidor, propomos utilizar um serviço de armazenagem na nuvem de alta escalabilidade e alta disponibilidade, por se tratar de inserções contínuas todo o tempo.
 
 O servidor deve tratar e  armazenar as informações que virão do cliente, como:
 \begin{itemize}
@@ -453,7 +465,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
  
   Para armazenar na nuvem as informações das redes coletadas, foi utilizada a classe NetworkChangeReceiver, estendida do componente BroadCastReceiver, que tem como objetivo principal enviar um POST para o serviço de armazenamento caso o dispositivo conecte em alguma nova rede sem fio e que a mesma tenha acesso a internet. Para cada rede armazenada no dispositivo, uma requisição POST é realizada com a informação contendo o e-mail do usuário dono do dispositivo. Tal informação é adquirida através da classe UserEmailFetcher. Após o envio das informações da rede, a mesma é excluída da base de dados do aplicativo no dispositivo.
 
-  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 7.    
+  O relacionamento entre as classes descritas acima pode ser melhor visualizado no diagrama de classes, representado na Figura 9.    
   
   \begin{figure}[hbt]
   \includegraphics [scale=.3] {diagrama}
@@ -462,7 +474,7 @@ Começaremos pela MainActivity, classe estendida do componente Activity do Andro
   
 
  \section{Google Docs}
-Com o objetivo de implementar o serviço de armazenamento na nuvem, o serviço de armazenamento na nuvem, utilizamos o Google Docs, que é altamente disponível e gratuito, nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 8 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
+Com o objetivo de implementar o serviço de armazenamento na nuvem, utilizamos o Google Docs, que é altamente disponível e gratuito, nos fornece um serviço de criação, edição e utilização de formulários, onde as respostas são armazenadas em planilhas compartilhadas. A Figura 10 exibe o formulário que foi criado para esse trabalho, onde cada campo representa um atributo da rede inserida.
 
 Para armazenar as redes coletadas através desse formulário, foi necessário estudar o código e a requisição do botão ``submit'' do ``form'', em busca de algo que nos desse a possibilidade de automatizar as ações de digitar os dados de cada rede wireless coletada e clicar no botão enviar, para que assim o dado fosse inserido na planilha de resposta.
 
@@ -495,12 +507,12 @@ Consideramos para trabalhos futuros a melhoria das requisições ao serviço de 
  
 \begin{figure}[hbt]
   \includegraphics[scale=0.4]{form}
-  \caption{Página do formulário utilizado}
+  \caption{Página do formulário Google Docs utilizado para armazenar os dados coletados}
 \end{figure}
 
 
 \section{Limpeza dos dados}
-Para atender a proposta de limpeza de dados, providenciamos a anonimidade dos usuários contribuintes através da transformação do e-mail coletado pela classe UserEmailFetcher em um hash antes de mandá-lo ao serviço de armazenamento na nuvem.
+Para atender a proposta de limpeza de dados, providenciamos a anonimidade dos usuários contribuintes através da transformação do e-mail coletado pela classe UserEmailFetcher em um \emph{hash} antes de mandá-lo ao serviço de armazenamento na nuvem.
 A seguir temos um exemplo de um registro com as informações \ac{SSID} e ID (identificador do usuário) transformadas em hash. 
 
 \begin{center}
@@ -512,7 +524,7 @@ A seguir temos um exemplo de um registro com as informações \ac{SSID} e ID (id
 \end{center}
 
 
-O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o hash do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte. 
+O código a seguir foi retirado da classe UserEmailFetcher, e é disparado no momento em que estão sendo feitas as requisições POST no formulário do Google Docs. Podemos reparar que na linha 16 é retornado o \emph{hash} do e-mail de conta Google do usuário, a qual utilizamos como identificador do usuário contribuinte. 
 
 
 
@@ -567,7 +579,7 @@ Para considerarmos que um local é o trabalho do usuário e outro é a residênc
 \begin{longtable}{|c|c|c|c|}
 
 \hline
-\textbf{SSID} & \textbf{Capturada em}  & \textbf{ID} \\
+\textbf{SSID} & \textbf{BSSID} & \textbf{Capturada em}  & \textbf{ID} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
@@ -603,9 +615,8 @@ CTBC                      & 9c:d6:43:7a:bc:0b & 30/07/2014 06:25:45 & godinhopat
 Amanda                    & c0:a0:bb:0f:68:de & 30/07/2014 06:25:45 & godinhopatrick@gmail.com \\
 Lar Doce Lar              & c0:a0:bb:0e:fa:1e & 30/07/2014 06:28:28 & godinhopatrick@gmail.com \\
 
-\caption{Análise 1}
+\caption{Rastros de mobilidade do usuário que percorreu menos redes sem fio em seu percurso.}
 \centering
-\label{Análise 1}
 \end{longtable}
 \end{center}
 
@@ -627,9 +638,8 @@ Lar Doce Lar              & c0:a0:bb:0e:fa:1e & 30/07/2014 06:28:28 & godinhopat
 \hline \multicolumn{4}{r}{\textit{Continua na próxima página}} \\
 \endfoot
 \hline
-\caption{Análise 2}
+\caption{Rastros de mobilidade do usuário que percorreu mais redes sem fio em seu percurso.}
 \centering
-\label{Análise 2}
 \endlastfoot
 8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
 8d179f92a46fab285a79929ec51d841a & 04/08/2014 05:36:47 & aa30415a863fa6539cf2e0d741697987 \\
@@ -766,7 +776,7 @@ c80a3eaff0aa4d1d86e2f3afbc45a355 & 04/08/2014 06:18:06 & aa30415a863fa6539cf2e0d
 \end{longtable}
 \end{center}
 
-Outro cenário interessante de se analisar é a quantidade de vezes que uma rede foi coletada em um certo intervalo de tempo. Por exemplo na Figura 9, que ilustra a data de 28/05/2014 em um intervalo de tempo entre 00:00 e 18:20,  onde é exibido o nome da rede bem como a quantidade que ela foi coletada pelo aplicativo. 
+Outro cenário interessante de se analisar é a quantidade de vezes que uma rede foi coletada em um certo intervalo de tempo. Por exemplo na Figura 11, que ilustra a data de 28/05/2014 em um intervalo de tempo entre 00:00 e 18:20,  onde é exibido o nome da rede bem como a quantidade que ela foi coletada pelo aplicativo. 
 
 \begin{figure}[hbt]
   \includegraphics[scale=0.4]{analise3}
@@ -776,7 +786,7 @@ Outro cenário interessante de se analisar é a quantidade de vezes que uma rede
 
 Para essa análise, foram filtradas as redes que foram coletadas mais que 30 vezes, para eliminarmos as que para esse cenário não nos interessa. Concluímos com esse gráfico que mesmo o usuário permanecendo a mesma quantidade de tempo no alcance das redes Lar Doce Lar, local onde reside,  e as redes ALGARTELECOM, local onde trabalha, as redes sem fio do trabalho foram mais frequentes na coleta, isso se deu pela quantidade de pontos fornecedores, como replicadores e roteadores, (com MAC Address diferentes) de uma mesma rede, onde para cada uma alcançada é criado um novo registro na base de dados do dispositivo. 
 
-Identificamos também a necessidade de descobrir se o padrão de coleta das redes sem fio se repetiam todos os dias, ou seja, inclusive sábados e domingos. Concluímos que não, pois teve alteração das redes sem fio nos fins de semana,  como por exemplo na Tabela 3 abaixo, onde ilustra as redes coletadas pelo mesmo usuário da Figura 9, em um sábado.
+Identificamos também a necessidade de descobrir se o padrão de coleta das redes sem fio se repetiam todos os dias, ou seja, inclusive sábados e domingos. Concluímos que não, pois teve alteração das redes sem fio nos fins de semana,  como por exemplo na Tabela 3 abaixo, onde ilustra as redes coletadas pelo mesmo usuário da Tabela 1, em um sábado.
 
 \small
 \setlength\tabcolsep{2pt}
@@ -796,9 +806,8 @@ Identificamos também a necessidade de descobrir se o padrão de coleta das rede
 \hline \multicolumn{4}{r}{\textit{Continua na próxima página}} \\
 \endfoot
 \hline
-\caption{Análise 4}
+\caption{Dados coletados para analisar os padrões de mobilidade de um dos usuários participantes da coleta}
 \centering
-\label{Análise 4}
 \endlastfoot
 Rede Hoteis Prive                 & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
 Boulevard\_recepcao               & 09/08/2014 07:40:10 & godinhopatrick@gmail.com \\
@@ -919,9 +928,9 @@ Mais análises são possíveis de ser construídas, porém pela limitação do s
 Com o desenvolvimento desse trabalho, concluímos que existe um potencial enorme em pesquisas no campo de redes móveis, principalmente no trabalho base seguido, o PheroCast. Ficamos satisfeitos com o resultado de ter o protótipo implementado, e mostrar o grande potencial a ser explorado no que se refere às análises dos dados coletados. Também podemos contribuir com a pesquisa de predição da localização de um nó em uma rede móvel, dentre outras pesquisas na comunidade que demandam de dados reais de ``rastros'' como os capturados através do produto final deste trabalho, o aplicativo PheroCast App.
 
 
-Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Outro ponto a ser implementado futuramente, como mencionado, será a limpeza dos dados para garantir a anonimidade dos contribuintes dos dados.
+Para trabalhos futuros, pretendemos implementar também a coleta e armazenamento das localizações por GPS, capturadas também pelo dispositivo móvel. Para melhorar mais ainda o trabalho, indicamos também um serviço de armazenamento na nuvem com uma base de dados mais robusta, a fim de gerar relatórios mais analíticos, pois o Google Docs, serviço utilizado nesse trabalho, não atende uma grande demanda de dados, visto que com os dados coletados neste trabalho a performance ao operar as planilhas é bem pequena. 
 
-Para melhorar mais ainda o trabalho, indicamos também um serviço de armazenamento na nuvem com uma base de dados mais robusta, a fim de gerar relatórios mais analíticos, pois o Google Docs, serviço utilizado nesse trabalho, não atende uma grande demanda de dados, visto que com os dados coletados neste trabalho a performance ao operar as planilhas é bem pequena. 
+Outro ponto importante a ser implementado em trabalhos futuros, são análises estatísticas mais bem elaboradas do que as que foram apresentadas neste trabalho. 
 
 Concluímos também que a arquitetura, implementação e desenvolvimento do aplicativo bem como a produção das análises com os dados produzidos pela utilização do software por algumas pessoas da comunidade, foi consequência da base de conhecimento adquirida durante o curso de Sistemas de Informação da Universidade Federal de Uberlândia, bem como o tempo de pesquisa aplicado nesse trabalho. Tais ações e resultados implicam no sucesso deste trabalho de conclusão de curso.
 
